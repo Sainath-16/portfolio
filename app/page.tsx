@@ -292,7 +292,7 @@ export default function Portfolio() {
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6"
           >
             Hi, I&apos;m{" "}
-            <span className="text-gradient">Sainath S</span> {/* [cite: 1] */}
+            <span className="text-gradient">Sainath S</span>
           </motion.h1>
 
           <motion.p
@@ -301,7 +301,7 @@ export default function Portfolio() {
             transition={{ delay: 0.35, duration: 0.7 }}
             className="text-lg sm:text-xl md:text-2xl font-medium text-slate-400 mb-4"
           >
-            Computer Science Undergraduate {/* [cite: 7] */}
+            Computer Science Undergraduate
           </motion.p>
 
           <motion.p
@@ -310,7 +310,7 @@ export default function Portfolio() {
             transition={{ delay: 0.5, duration: 0.7 }}
             className="max-w-2xl mx-auto text-base sm:text-lg text-slate-500 mb-10 leading-relaxed"
           >
-            Building intelligent, scalable, and secure software solutions with AI, Machine Learning, and modern cloud technologies. {/* [cite: 9] */}
+            Building intelligent, scalable, and secure software solutions with AI, Machine Learning, and modern cloud technologies.
           </motion.p>
 
           <motion.div
@@ -378,13 +378,13 @@ export default function Portfolio() {
                 </div>
               </div>
               <p className="text-slate-300 leading-relaxed text-base md:text-lg">
-                Computer Science undergraduate with hands-on experience building AI-powered and full-stack web applications using Python, FastAPI, Next.js, and Scikit-learn. {/* [cite: 7, 24] */} Strong interest in Artificial Intelligence, Machine Learning, Cybersecurity, and Cloud Computing, with practical exposure through projects, workshops, and technical training programs. {/* [cite: 8] */} Passionate about developing secure, scalable, and intelligent software solutions. {/* [cite: 9] */}
+                Computer Science undergraduate with hands-on experience building AI-powered and full-stack web applications using Python, FastAPI, Next.js, and Scikit-learn. Strong interest in Artificial Intelligence, Machine Learning, Cybersecurity, and Cloud Computing, with practical exposure through projects, workshops, and technical training programs. Passionate about developing secure, scalable, and intelligent software solutions.
               </p>
 
               {/* Quick stats */}
               <div className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-white/[0.05]">
                 {[
-                  { value: "3+", label: "Projects Built" },
+                  { value: "4+", label: "Projects Built" },
                   { value: "5+", label: "Certifications" },
                   { value: "4+", label: "Tech Domains" },
                 ].map((stat) => (
@@ -471,21 +471,21 @@ export default function Portfolio() {
                       Featured
                     </span>
                   </div>
-                  <h4 className="text-2xl md:text-3xl font-bold text-white mb-2">MENTRA.OS {/* [cite: 23] */}</h4>
-                  <p className="text-sm font-medium text-cyan-400/80 mb-6">AI-Based Cognitive Telemetry Platform {/* [cite: 23] */}</p>
+                  <h4 className="text-2xl md:text-3xl font-bold text-white mb-2">MENTRA.OS</h4>
+                  <p className="text-sm font-medium text-cyan-400/80 mb-6">AI-Based Cognitive Telemetry Platform</p>
 
                   <ul className="space-y-3 text-slate-400 mb-8 text-sm leading-relaxed">
                     <li className="flex gap-3">
                       <span className="text-cyan-400/60 mt-1 shrink-0">▸</span>
-                      Built a full-stack platform to monitor student stress using psychological and physiological data. {/* [cite: 24] */}
+                      Built a full-stack platform to monitor student stress using psychological and physiological data.
                     </li>
                     <li className="flex gap-3">
                       <span className="text-cyan-400/60 mt-1 shrink-0">▸</span>
-                      Developed scalable architecture using Next.js and FastAPI with secure JWT authentication. {/* [cite: 24] */}
+                      Developed scalable architecture using Next.js and FastAPI with secure JWT authentication.
                     </li>
                     <li className="flex gap-3">
                       <span className="text-cyan-400/60 mt-1 shrink-0">▸</span>
-                      Trained a Random Forest model (Scikit-learn) achieving 88.6% prediction accuracy. {/* [cite: 24] */}
+                      Trained a Random Forest model (Scikit-learn) achieving 88.6% prediction accuracy.
                     </li>
                     <li className="flex gap-3">
                       <span className="text-cyan-400/60 mt-1 shrink-0">▸</span>
@@ -493,7 +493,7 @@ export default function Portfolio() {
                     </li>
                     <li className="flex gap-3">
                       <span className="text-cyan-400/60 mt-1 shrink-0">▸</span>
-                      Implemented SQLite-based longitudinal tracking and automated PDF report generation. {/* [cite: 24] */}
+                      Implemented SQLite-based longitudinal tracking and automated PDF report generation.
                     </li>
                   </ul>
 
@@ -517,21 +517,21 @@ export default function Portfolio() {
               <motion.div variants={fadeInUp} className="glass-card glow-violet rounded-2xl p-7 group flex-1">
                 <div className="flex items-center gap-3 mb-1">
                   <Layers size={18} className="text-violet-400" />
-                  <h4 className="text-xl font-bold text-white">SHOWMAZE {/* [cite: 25] */}</h4>
+                  <h4 className="text-xl font-bold text-white">SHOWMAZE</h4>
                 </div>
-                <p className="text-sm font-medium text-violet-400/80 mb-5">Event Management Platform {/* [cite: 25] */}</p>
+                <p className="text-sm font-medium text-violet-400/80 mb-5">Event Management Platform</p>
                 <ul className="space-y-2.5 text-slate-400 text-sm mb-6">
                   <li className="flex gap-2.5">
                     <span className="text-violet-400/60 mt-0.5 shrink-0">▸</span>
-                    Developed scalable event discovery and registration platform. {/* [cite: 25] */}
+                    Developed scalable event discovery and registration platform.
                   </li>
                   <li className="flex gap-2.5">
                     <span className="text-violet-400/60 mt-0.5 shrink-0">▸</span>
-                    Implemented secure authentication using Clerk. {/* [cite: 25] */}
+                    Implemented secure authentication using Clerk.
                   </li>
                   <li className="flex gap-2.5">
                     <span className="text-violet-400/60 mt-0.5 shrink-0">▸</span>
-                    Integrated Stripe payment gateway with webhook support, tested via ngrok. {/* [cite: 25] */}
+                    Integrated Stripe payment gateway with webhook support, tested via ngrok.
                   </li>
                 </ul>
                 <div className="flex flex-wrap gap-2">
@@ -550,17 +550,17 @@ export default function Portfolio() {
               <motion.div variants={fadeInUp} className="glass-card glow-emerald rounded-2xl p-7 group flex-1">
                 <div className="flex items-center gap-3 mb-1">
                   <Sparkles size={18} className="text-emerald-400" />
-                  <h4 className="text-xl font-bold text-white">AI Quiz Generator {/* [cite: 26] */}</h4>
+                  <h4 className="text-xl font-bold text-white">AI Quiz Generator</h4>
                 </div>
                 <p className="text-sm font-medium text-emerald-400/80 mb-5">Intelligent Assessment Tool</p>
                 <ul className="space-y-2.5 text-slate-400 text-sm mb-6">
                   <li className="flex gap-2.5">
                     <span className="text-emerald-400/60 mt-0.5 shrink-0">▸</span>
-                    Java-based application generating dynamic quizzes based on selected topics. {/* [cite: 26] */}
+                    Java-based application generating dynamic quizzes based on selected topics.
                   </li>
                   <li className="flex gap-2.5">
                     <span className="text-emerald-400/60 mt-0.5 shrink-0">▸</span>
-                    Designed automated question generation and answer validation logic. {/* [cite: 26] */}
+                    Designed automated question generation and answer validation logic.
                   </li>
                 </ul>
                 <span className="px-2.5 py-1 text-xs rounded-full bg-white/[0.04] text-slate-400 border border-white/[0.06] hover:border-emerald-500/30 transition-colors duration-300">
@@ -568,6 +568,55 @@ export default function Portfolio() {
                 </span>
               </motion.div>
             </div>
+
+            {/* Featured: SurfaceCheck */}
+            <motion.div variants={fadeInUp} className="lg:col-span-5">
+              <div className="gradient-border h-full">
+                <div className="gradient-border-inner p-8 md:p-10">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="p-2 rounded-lg bg-emerald-500/10">
+                      <Shield size={18} className="text-emerald-400" />
+                    </div>
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                      Featured
+                    </span>
+                  </div>
+                  <h4 className="text-2xl md:text-3xl font-bold text-white mb-2">SurfaceCheck API</h4>
+                  <p className="text-sm font-medium text-emerald-400/80 mb-6">Automated Vulnerability Scanning Engine</p>
+
+                  <ul className="space-y-3 text-slate-400 mb-8 text-sm leading-relaxed">
+                    <li className="flex gap-3">
+                      <span className="text-emerald-400/60 mt-1 shrink-0">▸</span>
+                      Built a decoupled security tool to automate the detection of exposed network ports and missing HTTP security headers.
+                    </li>
+                    <li className="flex gap-3">
+                      <span className="text-emerald-400/60 mt-1 shrink-0">▸</span>
+                      Developed a high-performance backend using FastAPI and Python, integrating the Nmap system tool for active infrastructure scanning.
+                    </li>
+                    <li className="flex gap-3">
+                      <span className="text-emerald-400/60 mt-1 shrink-0">▸</span>
+                      Created a responsive Next.js frontend dashboard to visualize security findings and provide actionable remediation steps based on severity.
+                    </li>
+                    <li className="flex gap-3">
+                      <span className="text-emerald-400/60 mt-1 shrink-0">▸</span>
+                      Implemented automated PDF security report generation for SecOps teams using the fpdf2 library.
+                    </li>
+                  </ul>
+
+                  <div className="flex flex-wrap gap-2">
+                    {["FastAPI", "Next.js", "Python", "Nmap", "Tailwind CSS"].map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 text-xs rounded-full bg-white/[0.04] text-slate-300 border border-white/[0.06] hover:border-emerald-500/30 hover:text-emerald-300 transition-colors duration-300"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
           </div>
         </motion.div>
       </section>
@@ -591,7 +640,7 @@ export default function Portfolio() {
               <div className="p-2.5 rounded-xl bg-cyan-500/10 text-cyan-400">
                 <Briefcase size={20} />
               </div>
-              <h3 className="text-2xl font-bold text-white">Experience {/* [cite: 13] */}</h3>
+              <h3 className="text-2xl font-bold text-white">Experience</h3>
             </motion.div>
 
             <motion.div variants={fadeInUp}>
@@ -606,21 +655,21 @@ export default function Portfolio() {
                     2025
                   </span>
                   <h4 className="text-lg font-semibold text-white mb-1">
-                    Cybersecurity & Ethical Hacking Intern {/* [cite: 14] */}
+                    Cybersecurity & Ethical Hacking Intern
                   </h4>
-                  <p className="text-sm text-slate-500 mb-4">ICT Academy of Kerala, Technopark {/* [cite: 15] */}</p>
+                  <p className="text-sm text-slate-500 mb-4">ICT Academy of Kerala, Technopark</p>
                   <ul className="space-y-2.5 text-sm text-slate-400">
                     <li className="flex gap-2.5">
                       <span className="text-cyan-400/50 mt-0.5 shrink-0">▸</span>
-                      Learned fundamentals of cybersecurity, ethical hacking, and vulnerability assessment. {/* [cite: 16] */}
+                      Learned fundamentals of cybersecurity, ethical hacking, and vulnerability assessment.
                     </li>
                     <li className="flex gap-2.5">
                       <span className="text-cyan-400/50 mt-0.5 shrink-0">▸</span>
-                      Performed hands-on exercises involving penetration testing concepts. {/* [cite: 17] */}
+                      Performed hands-on exercises involving penetration testing concepts.
                     </li>
                     <li className="flex gap-2.5">
                       <span className="text-cyan-400/50 mt-0.5 shrink-0">▸</span>
-                      Gained exposure to web application and system security practices. {/* [cite: 18] */}
+                      Gained exposure to web application and system security practices.
                     </li>
                   </ul>
                 </div>
@@ -634,7 +683,7 @@ export default function Portfolio() {
               <div className="p-2.5 rounded-xl bg-violet-500/10 text-violet-400">
                 <Award size={20} />
               </div>
-              <h3 className="text-2xl font-bold text-white">Certifications {/* [cite: 20] */}</h3>
+              <h3 className="text-2xl font-bold text-white">Certifications</h3>
             </motion.div>
 
             <div className="space-y-3">
@@ -648,7 +697,7 @@ export default function Portfolio() {
                     {String(i + 1).padStart(2, "0")}
                   </div>
                   <p className="text-sm text-slate-300 group-hover:text-white transition-colors duration-300">
-                    {cert} {/* [cite: 21] */}
+                    {cert}
                   </p>
                 </motion.div>
               ))}
@@ -730,7 +779,7 @@ export default function Portfolio() {
             >
               <Mail size={16} className="text-cyan-400" />
               <span className="text-sm text-slate-300 group-hover:text-white transition-colors">
-                sainaths2005@gmail.com {/* [cite: 3] */}
+                sainaths2005@gmail.com
               </span>
             </a>
             <a
@@ -741,7 +790,7 @@ export default function Portfolio() {
             >
               <Linkedin size={16} className="text-blue-400" />
               <span className="text-sm text-slate-300 group-hover:text-white transition-colors">
-                LinkedIn {/* [cite: 4] */}
+                LinkedIn
               </span>
               <ArrowUpRight size={12} className="text-slate-600 group-hover:text-blue-400 transition-colors" />
             </a>
@@ -753,7 +802,7 @@ export default function Portfolio() {
             >
               <Github size={16} className="text-slate-300" />
               <span className="text-sm text-slate-300 group-hover:text-white transition-colors">
-                GitHub {/* [cite: 5] */}
+                GitHub
               </span>
               <ArrowUpRight size={12} className="text-slate-600 group-hover:text-white transition-colors" />
             </a>
@@ -761,7 +810,7 @@ export default function Portfolio() {
 
           <motion.div variants={fadeInUp} className="flex items-center justify-center gap-2 text-slate-500 text-sm">
             <MapPin size={14} className="text-slate-600" />
-            <span>Thiruvananthapuram, Kerala {/* [cite: 2] */}</span>
+            <span>Thiruvananthapuram, Kerala</span>
           </motion.div>
         </motion.div>
       </section>
