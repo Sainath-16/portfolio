@@ -270,9 +270,12 @@ export default function Portfolio() {
                   <li>• Java-based application generating dynamic quizzes based on selected topics.</li>
                   <li>• Designed automated question generation and answer validation logic.</li>
                 </ul>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-4">
                   <span className="px-3 py-1 text-xs rounded-full bg-slate-800 text-slate-300">Java</span>
                 </div>
+                <a href="https://github.com/Sainath-16/AI-Quiz-Generator" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-xs text-slate-500 hover:text-slate-300 transition-colors duration-300">
+                  <Github size={14} /> View on GitHub
+                </a>
               </div>
             </div>
 
