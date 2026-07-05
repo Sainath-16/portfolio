@@ -253,11 +253,14 @@ export default function Portfolio() {
                   <li>• Implemented secure authentication using Clerk.</li>
                   <li>• Integrated Stripe payment gateway with webhook support, tested securely via ngrok.</li>
                 </ul>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {["Next.js", "Clerk", "Stripe", "ngrok"].map(tech => (
                     <span key={tech} className="px-3 py-1 text-xs rounded-full bg-slate-800 text-slate-300">{tech}</span>
                   ))}
                 </div>
+                <a href="https://github.com/Sainath-16/showmaze" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-xs text-slate-500 hover:text-purple-400 transition-colors duration-300">
+                  <Github size={14} /> View on GitHub
+                </a>
               </div>
 
               {/* AI Quiz Generator */}
