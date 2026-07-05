@@ -193,7 +193,7 @@ export default function Portfolio() {
                       <span key={tech} className="px-3 py-1 text-xs rounded-full bg-slate-800 text-slate-300">{tech}</span>
                     ))}
                   </div>
-                  <a href="https://github.com/Sainath-16" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-xs text-slate-500 hover:text-cyan-400 transition-colors duration-300">
+                  <a href="https://github.com/Sainath-16/mentra.os" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-xs text-slate-500 hover:text-cyan-400 transition-colors duration-300">
                     <Github size={14} /> View on GitHub
                   </a>
                 </div>
@@ -214,7 +214,7 @@ export default function Portfolio() {
                     <span key={tech} className="px-3 py-1 text-xs rounded-full bg-slate-800 text-slate-300">{tech}</span>
                   ))}
                 </div>
-                <a href="https://github.com/Sainath-16" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-xs text-slate-500 hover:text-emerald-400 transition-colors duration-300">
+                <a href="https://github.com/Sainath-16/SurfaceCheck" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-xs text-slate-500 hover:text-emerald-400 transition-colors duration-300">
                   <Github size={14} /> View on GitHub
                 </a>
               </div>
