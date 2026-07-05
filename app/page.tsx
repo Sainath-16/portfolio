@@ -193,6 +193,9 @@ export default function Portfolio() {
                       <span key={tech} className="px-3 py-1 text-xs rounded-full bg-slate-800 text-slate-300">{tech}</span>
                     ))}
                   </div>
+                  <a href="https://github.com/Sainath-16" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-xs text-slate-500 hover:text-cyan-400 transition-colors duration-300">
+                    <Github size={14} /> View on GitHub
+                  </a>
                 </div>
               </div>
 
@@ -206,15 +209,41 @@ export default function Portfolio() {
                   <li>• Created a responsive Next.js frontend dashboard to visualize security findings and provide actionable remediation steps based on severity.</li>
                   <li>• Implemented automated PDF security report generation for SecOps teams.</li>
                 </ul>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {["FastAPI", "Next.js", "Python", "Nmap", "Tailwind CSS"].map(tech => (
                     <span key={tech} className="px-3 py-1 text-xs rounded-full bg-slate-800 text-slate-300">{tech}</span>
                   ))}
                 </div>
+                <a href="https://github.com/Sainath-16" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-xs text-slate-500 hover:text-emerald-400 transition-colors duration-300">
+                  <Github size={14} /> View on GitHub
+                </a>
               </div>
             </div>
 
             <div className="flex flex-col gap-8">
+              {/* KickBracket Pro */}
+              <div className="group relative p-1 rounded-2xl bg-gradient-to-br from-orange-500/20 to-rose-600/20 overflow-hidden hover:from-orange-500/40 hover:to-rose-600/40 transition-all duration-500">
+                <div className="h-full p-8 rounded-xl bg-slate-950 backdrop-blur-xl">
+                  <h4 className="text-2xl font-bold mb-2">KickBracket Pro</h4>
+                  <p className="text-orange-400 text-sm font-medium mb-6">Broadcast-Grade Tournament Management Platform</p>
+                  <ul className="space-y-3 text-slate-400 mb-8 text-sm">
+                    <li>• Built a full-stack football tournament platform enabling organizers to create tournaments, register unlimited teams, and auto-generate match fixtures.</li>
+                    <li>• Implemented 6 tournament formats including Round Robin, Single/Double Elimination, Swiss System, and Group + Knockout stages.</li>
+                    <li>• Engineered real-time cloud sync with spectator views updating live match scores every 3 seconds via serverless proxy routes.</li>
+                    <li>• Designed a dedicated auth portal with Google login, organizer workspace isolation, and 1-click demo accounts.</li>
+                    <li>• Delivered a broadcast-grade glassmorphism UI with Framer Motion micro-animations for live status indicators and match cards.</li>
+                  </ul>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {["Next.js", "TypeScript", "Framer Motion", "Vercel", "Real-time Sync"].map(tech => (
+                      <span key={tech} className="px-3 py-1 text-xs rounded-full bg-slate-800 text-slate-300">{tech}</span>
+                    ))}
+                  </div>
+                  <a href="https://github.com/Sainath-16/kickbracket-pro" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-xs text-slate-500 hover:text-orange-400 transition-colors duration-300">
+                    <Github size={14} /> View on GitHub
+                  </a>
+                </div>
+              </div>
+
               {/* SHOWMAZE */}
               <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-white/[0.1] transition-all">
                 <h4 className="text-xl font-bold mb-2">SHOWMAZE</h4>
