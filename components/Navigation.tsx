@@ -1,63 +1,52 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Menu, X, ArrowUpRight, Terminal } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { BrandGithub, BrandLinkedin } from "./BrandIcons";
 
-interface NavItem {
-  name: string;
-  href: string;
-}
-
-const NAV_ITEMS: NavItem[] = [
-  { name: "Overview", href: "#overview" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Experience", href: "#experience" },
-  { name: "Focus", href: "#focus" },
-  { name: "Contact", href: "#contact" }
+const NAV_ITEMS = [
+  { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Skills", href: "#skills" },
+  { label: "Experience", href: "#experience" },
+  { label: "Contact", href: "#contact" }
 ];
 
 export function Navigation() {
-  const [activeSection, setActiveSection] = useState<string>("overview");
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("about");
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 40);
 
-      const sectionIds = ["overview", "skills", "projects", "experience", "focus", "contact"];
-      const scrollPos = window.scrollY + 180;
+      const sections = ["about", "projects", "skills", "experience", "contact"];
+      const scrollPosition = window.scrollY + 200;
 
-      for (let i = sectionIds.length - 1; i >= 0; i--) {
-        const id = sectionIds[i];
-        const el = document.getElementById(id);
-        if (el) {
-          const top = el.offsetTop;
-          if (scrollPos >= top) {
-            setActiveSection(id);
-            break;
-          }
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sections[i]);
+        if (el && scrollPosition >= el.offsetTop) {
+          setActiveSection(sections[i]);
+          break;
         }
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setMobileMenuOpen(false);
-    const targetId = href.replace("#", "");
-    const element = document.getElementById(targetId);
-    if (element) {
-      const navOffset = 80;
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+    const id = href.replace("#", "");
+    const target = document.getElementById(id);
+    if (target) {
+      const offset = 80;
+      const targetPos = target.getBoundingClientRect().top + window.pageYOffset;
       window.scrollTo({
-        top: elementPosition - navOffset,
+        top: targetPos - offset,
         behavior: "smooth"
       });
     }
@@ -65,63 +54,60 @@ export function Navigation() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-slate-950/80 backdrop-blur-md border-b border-white/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
-          : "bg-transparent border-b border-transparent"
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+        scrolled
+          ? "bg-[#0e1015]/85 backdrop-blur-md border-b border-white/[0.06] shadow-[0_4px_24px_rgba(0,0,0,0.5)] py-4"
+          : "bg-transparent border-b border-transparent py-6"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-18 flex items-center justify-between">
-        {/* Brand identity */}
+      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+        {/* Name / Brandmark */}
         <a
-          href="#overview"
-          onClick={(e) => handleNavClick(e, "#overview")}
-          className="group flex items-center gap-3 text-slate-100 hover:text-white transition-colors"
-          aria-label="Sainath S Portfolio Home"
+          href="#about"
+          onClick={(e) => scrollTo(e, "#about")}
+          className="group flex items-center gap-3 text-white transition-opacity hover:opacity-90"
         >
-          <div className="w-9 h-9 rounded-lg bg-white/[0.04] border border-white/[0.1] flex items-center justify-center text-cyan-400 group-hover:border-cyan-500/40 group-hover:text-cyan-300 transition-all">
-            <Terminal size={17} strokeWidth={2} />
+          <div className="w-8 h-8 rounded-full bg-white/[0.04] border border-white/[0.1] flex items-center justify-center text-xs font-serif italic text-white group-hover:border-white/[0.25] transition-colors">
+            S
           </div>
           <div className="flex flex-col">
-            <span className="text-sm font-semibold tracking-tight flex items-center gap-2">
+            <span className="text-sm font-medium tracking-tight text-white flex items-center gap-2">
               Sainath S
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#10b981]" />
             </span>
-            <span className="text-[11px] font-mono text-slate-400 group-hover:text-slate-300 transition-colors">
-              Developer & Researcher
-            </span>
+            <span className="text-[11px] font-mono text-[#656c7a]">Developer</span>
           </div>
         </a>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1 bg-white/[0.03] p-1.5 rounded-full border border-white/[0.06]">
+        {/* Desktop Links */}
+        <nav className="hidden md:flex items-center gap-1 bg-white/[0.03] px-3 py-1.5 rounded-full border border-white/[0.06]">
           {NAV_ITEMS.map((item) => {
             const isActive = activeSection === item.href.replace("#", "");
             return (
               <a
-                key={item.name}
+                key={item.label}
                 href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
-                className={`relative px-4 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
+                onClick={(e) => scrollTo(e, item.href)}
+                className={`px-3.5 py-1 text-xs font-medium rounded-full transition-colors ${
                   isActive
-                    ? "text-slate-100 bg-white/[0.08] shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]"
-                    : "text-slate-400 hover:text-slate-200 hover:bg-white/[0.02]"
+                    ? "bg-white/[0.08] text-white"
+                    : "text-[#9da3af] hover:text-white"
                 }`}
               >
-                {item.name}
+                {item.label}
               </a>
             );
           })}
         </nav>
 
-        {/* Action icons / CTA */}
-        <div className="hidden lg:flex items-center gap-3">
+        {/* Direct Action Links */}
+        <div className="hidden sm:flex items-center gap-3">
           <a
             href="https://github.com/Sainath-16"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-9 h-9 rounded-lg bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-slate-400 hover:text-white hover:border-white/[0.2] transition-all"
-            aria-label="GitHub Profile"
+            className="p-2 rounded-lg text-[#9da3af] hover:text-white hover:bg-white/[0.04] transition-colors"
+            aria-label="GitHub profile"
           >
             <BrandGithub size={17} />
           </a>
@@ -129,86 +115,74 @@ export function Navigation() {
             href="https://linkedin.com/in/sainaths18"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-9 h-9 rounded-lg bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/30 transition-all"
-            aria-label="LinkedIn Profile"
+            className="p-2 rounded-lg text-[#9da3af] hover:text-white hover:bg-white/[0.04] transition-colors"
+            aria-label="LinkedIn profile"
           >
             <BrandLinkedin size={17} />
           </a>
           <a
             href="#contact"
-            onClick={(e) => handleNavClick(e, "#contact")}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-medium text-slate-900 bg-slate-100 hover:bg-white transition-all shadow-[0_0_20px_rgba(255,255,255,0.15)] active:scale-[0.98]"
+            onClick={(e) => scrollTo(e, "#contact")}
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium text-[#0e1015] bg-[#f1f3f7] hover:bg-white transition-all shadow-sm"
           >
-            <span>Let&apos;s Talk</span>
-            <ArrowUpRight size={13} strokeWidth={2.5} />
+            <span>Get in touch</span>
+            <ArrowUpRight size={13} />
           </a>
         </div>
 
-        {/* Mobile menu toggle */}
+        {/* Mobile menu button */}
         <button
           type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden w-10 h-10 rounded-lg bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-slate-300 hover:text-white transition-colors"
-          aria-label="Toggle mobile navigation menu"
-          aria-expanded={mobileMenuOpen}
+          className="md:hidden p-2 text-[#9da3af] hover:text-white"
+          aria-label="Toggle navigation menu"
         >
           {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
-      {/* Mobile navigation drawer */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-white/[0.08] bg-slate-950/95 backdrop-blur-xl px-6 py-6 transition-all animate-in fade-in slide-in-from-top-2">
-          <nav className="flex flex-col gap-2">
-            {NAV_ITEMS.map((item) => {
-              const isActive = activeSection === item.href.replace("#", "");
-              return (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  onClick={(e) => handleNavClick(e, item.href)}
-                  className={`px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
-                    isActive
-                      ? "bg-white/[0.08] text-cyan-400 font-semibold"
-                      : "text-slate-300 hover:bg-white/[0.04] hover:text-white"
-                  }`}
-                >
-                  {item.name}
-                </a>
-              );
-            })}
-          </nav>
-
-          <div className="mt-6 pt-6 border-t border-white/[0.08] flex items-center justify-between">
-            <div className="flex items-center gap-3">
+        <div className="md:hidden bg-[#0e1015]/98 border-b border-white/[0.08] px-6 py-6 mt-4">
+          <nav className="flex flex-col gap-3">
+            {NAV_ITEMS.map((item) => (
               <a
-                href="https://github.com/Sainath-16"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-slate-400 hover:text-white"
-                aria-label="GitHub"
+                key={item.label}
+                href={item.href}
+                onClick={(e) => scrollTo(e, item.href)}
+                className="text-sm font-medium text-[#9da3af] hover:text-white py-1"
               >
-                <BrandGithub size={18} />
+                {item.label}
               </a>
+            ))}
+            <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between">
+              <div className="flex gap-4">
+                <a
+                  href="https://github.com/Sainath-16"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#9da3af] hover:text-white"
+                >
+                  <BrandGithub size={18} />
+                </a>
+                <a
+                  href="https://linkedin.com/in/sainaths18"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#9da3af] hover:text-white"
+                >
+                  <BrandLinkedin size={18} />
+                </a>
+              </div>
               <a
-                href="https://linkedin.com/in/sainaths18"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-slate-400 hover:text-cyan-400"
-                aria-label="LinkedIn"
+                href="#contact"
+                onClick={(e) => scrollTo(e, "#contact")}
+                className="text-xs font-medium text-[#0e1015] bg-[#f1f3f7] px-3.5 py-1.5 rounded-full"
               >
-                <BrandLinkedin size={18} />
+                Contact
               </a>
             </div>
-            <a
-              href="#contact"
-              onClick={(e) => handleNavClick(e, "#contact")}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-slate-900 bg-slate-100"
-            >
-              <span>Contact</span>
-              <ArrowUpRight size={14} />
-            </a>
-          </div>
+          </nav>
         </div>
       )}
     </header>

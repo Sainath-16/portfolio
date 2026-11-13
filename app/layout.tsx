@@ -1,35 +1,42 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, Newsreader, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const sans = Plus_Jakarta_Sans({
+  variable: "--font-sans",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const serif = Newsreader({
+  variable: "--font-serif",
   subsets: ["latin"],
+  style: ["normal", "italic"],
+  weight: ["300", "400", "500", "600"],
+  display: "swap",
+});
+
+const mono = JetBrains_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Sainath S — AI, Full-Stack & Cybersecurity Engineer",
+  title: "Sainath S — Developer & Computer Science Student",
   description:
-    "Portfolio of Sainath S — Computer Science undergraduate specializing in AI, Machine Learning, Cybersecurity vulnerability assessment, and scalable full-stack web applications.",
+    "Personal website of Sainath S. Computer Science undergraduate building web apps, machine learning models, and security tools.",
   keywords: [
     "Sainath S",
+    "Sainath",
     "Portfolio",
-    "AI Developer",
-    "Full-Stack Engineer",
-    "Cybersecurity",
-    "Ethical Hacking",
+    "Web Developer",
+    "AI Student",
     "FastAPI",
     "Next.js",
-    "MENTRA.OS",
-    "KickBracket Pro",
-    "SurfaceCheck"
+    "Cybersecurity"
   ],
   authors: [{ name: "Sainath S" }],
   creator: "Sainath S",
@@ -37,21 +44,21 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://portfolio-sainath.vercel.app/",
-    title: "Sainath S — AI, Full-Stack & Cybersecurity Engineer",
+    title: "Sainath S — Developer & Computer Science Student",
     description:
-      "Explore engineering projects, cognitive telemetry architectures, vulnerability scanning tools, and tournament platforms built by Sainath S.",
-    siteName: "Sainath S Portfolio"
+      "Personal website of Sainath S. Computer Science student building web apps, machine learning models, and security tools.",
+    siteName: "Sainath S"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sainath S — AI, Full-Stack & Cybersecurity Engineer",
+    title: "Sainath S — Developer & Computer Science Student",
     description:
-      "Explore engineering projects, cognitive telemetry architectures, and vulnerability scanning tools built by Sainath S."
+      "Personal website of Sainath S. Computer Science student building web apps, machine learning models, and security tools."
   }
 };
 
 export const viewport: Viewport = {
-  themeColor: "#020617",
+  themeColor: "#0f1115",
   colorScheme: "dark",
   width: "device-width",
   initialScale: 1
@@ -65,9 +72,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} dark antialiased scroll-smooth`}
+      className={`${sans.variable} ${serif.variable} ${mono.variable} dark antialiased scroll-smooth`}
     >
-      <body className="min-h-screen bg-slate-950 text-slate-100 selection:bg-cyan-500/20 selection:text-cyan-200">
+      <body className="min-h-screen bg-[#0e1015] text-[#e2e4e9] font-sans selection:bg-[#3b82f6]/25 selection:text-[#93c5fd]">
         {children}
       </body>
     </html>
