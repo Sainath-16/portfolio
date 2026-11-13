@@ -6,249 +6,302 @@ export interface Project {
   tagline: string;
   description: string;
   whyItMatters: string;
-  whatIBuilt: string[];
+  securityOrArchitectureHighlights: string[];
   techStack: string[];
   githubUrl: string;
-  liveUrl?: string;
-  accentColor: string;
-  visualType: "dashboard" | "security" | "bracket" | "events" | "quiz";
+  accent: string;
+  tier: "primary" | "secondary";
+  visualType: "security" | "telemetry" | "realtime" | "transactional" | "algorithmic";
 }
 
 export const PROJECTS: Project[] = [
   {
-    id: "mentra-os",
-    number: "01",
-    title: "MENTRA.OS",
-    category: "Machine Learning · Telemetry",
-    tagline: "Stress detection platform powered by explainable AI",
-    description:
-      "A platform built to detect student stress levels early using psychological responses and physiological indicators, with a heavy emphasis on making model predictions interpretable rather than a black box.",
-    whyItMatters:
-      "Most mental wellness forms are retrospective self-reports filled out when burnout is already setting in. MENTRA.OS looks at continuous telemetry patterns and uses SHAP values so clinicians and counselors understand exactly which variables triggered an alert.",
-    whatIBuilt: [
-      "Decoupled web architecture with a Next.js frontend and a FastAPI backend with JWT session auth",
-      "Trained and evaluated a Random Forest classifier in Scikit-learn on student wellness survey datasets",
-      "Integrated SHAP (SHapley Additive exPlanations) to calculate and visualize individual feature importance",
-      "Built an Autonomic Stress Indicator with calculated background fields to prevent data manipulation",
-      "Implemented historical tracking in SQLite and automated PDF summary generation for review"
-    ],
-    techStack: ["Python", "FastAPI", "Next.js", "Scikit-learn", "SHAP", "SQLite", "Tailwind CSS"],
-    githubUrl: "https://github.com/Sainath-16/mentra.os",
-    accentColor: "#2563eb",
-    visualType: "dashboard"
-  },
-  {
-    id: "kickbracket-pro",
-    number: "02",
-    title: "KickBracket Pro",
-    category: "Full-Stack Web App · Real-Time",
-    tagline: "Tournament bracket manager with live score sync",
-    description:
-      "A full-stack football tournament manager designed for grassroots organizers to build tournament brackets, manage teams, and push live match updates to spectators without manual coordination.",
-    whyItMatters:
-      "Grassroots tournaments frequently get delayed because managing brackets across paper sheets or spreadsheets causes bracket mismatch errors. KickBracket Pro handles the math and syncs state to spectator devices every 3 seconds.",
-    whatIBuilt: [
-      "Automated bracket generation supporting 6 formats: Single Elimination, Double Elimination, Round Robin, Swiss System, and Group + Knockout stages",
-      "3-second live spectator score updates using lightweight serverless proxy routes",
-      "Workspace isolation with Google authentication and instant 1-click organizer demo accounts",
-      "Responsive tournament bracket canvas with smooth drag and bracket navigation using Framer Motion"
-    ],
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
-    githubUrl: "https://github.com/Sainath-16/kickbracket-pro",
-    accentColor: "#d97706",
-    visualType: "bracket"
-  },
-  {
     id: "surfacecheck-api",
-    number: "03",
+    number: "01",
     title: "SurfaceCheck API",
-    category: "Cybersecurity · Automation",
-    tagline: "Automated network port and HTTP security header scanner",
+    category: "Offensive Reconnaissance · Security Tooling",
+    tagline: "Automated network attack surface scanner & OWASP header auditor",
     description:
-      "A security tool that runs automated scans on domain targets to identify exposed ports, out-of-date service banners, and missing defense headers that leave websites vulnerable.",
+      "A decoupled security reconnaissance tool that conducts automated port scanning, service banner enumeration, and HTTP security header compliance checks against target web properties.",
     whyItMatters:
-      "Small teams frequently deploy web apps without verifying whether debug ports are exposed or essential headers like CSP, HSTS, and X-Frame-Options are set. SurfaceCheck flags these gaps before attackers scan them.",
-    whatIBuilt: [
-      "FastAPI asynchronous scanning engine wrapping Nmap binary routines in a sandboxed process",
-      "HTTP header evaluation engine benchmarking configurations against OWASP security baselines",
-      "Clean web dashboard presenting open ports, severity ratings, and recommended remediation steps",
-      "Automated executive security audit export in PDF format for technical and non-technical stakeholders"
+      "Modern web servers frequently expose unnecessary management ports or fail to enforce basic defensive HTTP headers (CSP, HSTS, X-Frame-Options), leaving organizations open to clickjacking and reconnaissance. SurfaceCheck automates these audits into actionable remediation steps.",
+    securityOrArchitectureHighlights: [
+      "Sandboxed asynchronous Nmap process execution wrapped within FastAPI and Python",
+      "Automated evaluation against OWASP defensive header baselines with severity scoring",
+      "Interactive triage dashboard classifying exposed services into risk tiers",
+      "Automated export of structured vulnerability audit summaries in executive PDF format"
     ],
     techStack: ["Python", "FastAPI", "Nmap", "Next.js", "Linux", "Tailwind CSS"],
     githubUrl: "https://github.com/Sainath-16/SurfaceCheck",
-    accentColor: "#059669",
+    accent: "#10b981",
+    tier: "primary",
     visualType: "security"
+  },
+  {
+    id: "mentra-os",
+    number: "02",
+    title: "MENTRA.OS",
+    category: "Explainable Machine Learning · Telemetry",
+    tagline: "Student stress detection system powered by explainable AI (SHAP)",
+    description:
+      "A full-stack psychometric telemetry platform that analyzes physiological and psychological survey indicators to predict student stress states using transparent machine learning models.",
+    whyItMatters:
+      "Black-box machine learning models provide predictions without context, making it hard for counselors to trust the output. MENTRA.OS uses SHAP values to explain the exact feature contributions behind every prediction.",
+    securityOrArchitectureHighlights: [
+      "Trained and evaluated a Random Forest classifier in Scikit-learn with cross-validated accuracy",
+      "Embedded SHAP (SHapley Additive exPlanations) for transparent factor attribution per assessment",
+      "Hardened backend with FastAPI, SQLite persistence, and secure JWT authentication sessions",
+      "Background-calculated Autonomic Stress Indicator with locked inputs to maintain data integrity"
+    ],
+    techStack: ["Python", "FastAPI", "Next.js", "Scikit-learn", "SHAP", "SQLite", "Tailwind CSS"],
+    githubUrl: "https://github.com/Sainath-16/mentra.os",
+    accent: "#38bdf8",
+    tier: "primary",
+    visualType: "telemetry"
+  },
+  {
+    id: "kickbracket-pro",
+    number: "03",
+    title: "KickBracket Pro",
+    category: "Real-Time Systems · Tournament Engine",
+    tagline: "Live tournament fixture orchestrator with 3-second spectator replication",
+    description:
+      "A full-stack tournament management platform supporting 6 tournament bracket formats, organizer workspace separation, and low-latency spectator score distribution.",
+    whyItMatters:
+      "Managing complex sports brackets manually results in scheduling bottlenecks and delayed score distribution. KickBracket Pro solves this with automated algorithms and a 3-second live sync loop.",
+    securityOrArchitectureHighlights: [
+      "Automated bracket generation for Single/Double Elimination, Round Robin, Swiss, and Group Knockout",
+      "Real-time spectator state replication operating every 3 seconds via serverless proxy endpoints",
+      "Multi-tenant workspace isolation with Google authentication and instant demo sandboxes",
+      "Responsive tournament bracket canvas with smooth drag navigation powered by Framer Motion"
+    ],
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
+    githubUrl: "https://github.com/Sainath-16/kickbracket-pro",
+    accent: "#f59e0b",
+    tier: "primary",
+    visualType: "realtime"
   },
   {
     id: "showmaze",
     number: "04",
     title: "SHOWMAZE",
-    category: "Full-Stack Web App · Payments",
-    tagline: "Event discovery and ticket booking platform with Stripe webhooks",
+    category: "Web Applications · Transactional Security",
+    tagline: "Event discovery and ticket booking engine with Stripe webhook verification",
     description:
-      "An event discovery and registration platform built to handle user registration, ticket bookings, and reliable payment confirmation via Stripe webhooks.",
+      "An event ticketing and discovery application built with Next.js, Clerk authentication, and Stripe payments with resilient webhook signature verification.",
     whyItMatters:
-      "Handling online payments requires tight webhook reconciliation so users never pay without receiving their confirmed ticket, even if their browser disconnects during checkout.",
-    whatIBuilt: [
-      "Secure user authentication and session management integrated with Clerk",
-      "Stripe payment checkout flow with asynchronous webhook listeners verified through ngrok tunnels",
-      "Searchable event directory with category filters, venue details, and ticket tier management",
-      "Decoupled order fulfillment workflow that triggers confirmation immediately upon gateway capture"
+      "Handling event ticket reservations requires strict webhook verification to prevent payment race conditions and ensure tickets are only generated after confirmed gateway capture.",
+    securityOrArchitectureHighlights: [
+      "Stripe payment checkout flows with asynchronous cryptographic webhook signature validation",
+      "Enterprise session security and user authentication managed through Clerk Auth",
+      "Tested webhook ingress and replay resilience locally using secure ngrok tunnels"
     ],
     techStack: ["Next.js", "TypeScript", "Clerk Auth", "Stripe", "ngrok", "Tailwind CSS"],
     githubUrl: "https://github.com/Sainath-16/showmaze",
-    accentColor: "#7c3aed",
-    visualType: "events"
+    accent: "#a855f7",
+    tier: "secondary",
+    visualType: "transactional"
   },
   {
     id: "ai-quiz-generator",
     number: "05",
     title: "AI Quiz Generator",
-    category: "Algorithms · Core Software",
-    tagline: "Dynamic topic-based quiz generator written in Java",
+    category: "Software Engineering · Algorithmic Logic",
+    tagline: "Dynamic quiz generation and scoring engine written in Java",
     description:
-      "A desktop application built in Java that generates customized question sets and answer validation logic across selected topics, demonstrating core object-oriented principles.",
+      "A desktop application built in Java that dynamically generates customized question sets, randomizes distractors, and calculates topic accuracy breakdowns.",
     whyItMatters:
-      "Building quiz generation and automated scoring from scratch requires strict object modeling for question pools, difficulty weighting, and edge-case handling on user answers.",
-    whatIBuilt: [
-      "Domain model architecture separating question repositories, answer validators, and score calculation",
+      "Demonstrates core object-oriented principles, algorithmic validation, and clean separation between question stores, evaluation logic, and score compilation.",
+    securityOrArchitectureHighlights: [
+      "Domain model architecture separating question repositories, answer validators, and scoring",
       "Dynamic question sequencing and randomized distractor generator for multiple-choice formats",
-      "End-of-quiz scoring report displaying topic accuracy breakdowns and review hints"
+      "Real-time score calculation and detailed topic accuracy review"
     ],
     techStack: ["Java", "OOP Architecture", "Algorithms", "Software Design"],
     githubUrl: "https://github.com/Sainath-16/AI-Quiz-Generator",
-    accentColor: "#4f46e5",
-    visualType: "quiz"
+    accent: "#6366f1",
+    tier: "secondary",
+    visualType: "algorithmic"
   }
 ];
 
-export interface SkillGroup {
-  name: string;
-  summary: string;
-  items: {
-    title: string;
-    description: string;
-  }[];
+export interface SecurityPillar {
+  title: string;
+  focus: string;
+  description: string;
+  practicalWork: string[];
 }
 
-export const SKILL_GROUPS: SkillGroup[] = [
+export const SECURITY_PILLARS: SecurityPillar[] = [
   {
-    name: "Languages & Core",
-    summary: "The languages I write regularly for apps, scripts, and algorithms.",
-    items: [
-      { title: "Python", description: "FastAPI services, Scikit-learn ML scripts, Nmap automation" },
-      { title: "TypeScript", description: "Typed React components, Next.js server actions, APIs" },
-      { title: "JavaScript", description: "Modern ES6+ standards, browser DOM APIs, event handling" },
-      { title: "Java", description: "Object-oriented programming, data structures, test logic" },
-      { title: "SQL", description: "Relational schema design, SQLite queries, PostgreSQL" },
-      { title: "Bash / Shell", description: "Linux environments, scanner scripting, server automation" }
+    title: "Network Security & Reconnaissance",
+    focus: "Port auditing, active host discovery, protocol analysis",
+    description:
+      "Auditing network attack surfaces using tools like Nmap and Wireshark to identify exposed administrative ports, misconfigured firewalls, and unpatched service banners.",
+    practicalWork: [
+      "Built SurfaceCheck API wrapping Nmap to automate TCP port discovery and exposure alerts",
+      "Network packet inspection, host reconnaissance, and service fingerprinting drills",
+      "Hands-on labs on network segmentation, subnet discovery, and protocol security"
     ]
   },
   {
-    name: "Web & Frameworks",
-    summary: "The tools I use to build responsive, performant user interfaces and APIs.",
-    items: [
-      { title: "Next.js", description: "App Router, Server Components, API routes, edge hosting" },
-      { title: "React", description: "Component composition, custom hooks, reactive state" },
-      { title: "FastAPI", description: "Asynchronous Python REST APIs, Pydantic data schemas" },
-      { title: "Tailwind CSS", description: "Utility-first design systems, responsive layouts, theme tokens" },
-      { title: "Framer Motion", description: "Scroll-linked animation, layout transitions, micro-interactions" }
+    title: "Web Application & API Security",
+    focus: "OWASP Top 10, defensive headers, API endpoints",
+    description:
+      "Analyzing web applications for common vulnerability patterns including broken access control, injection vulnerabilities, and missing defensive HTTP configurations.",
+    practicalWork: [
+      "Studying OWASP Top 10 vulnerabilities (SQLi, XSS, CSRF, IDOR, SSRF)",
+      "Hands-on lab exercises in PortSwigger Web Security Academy and TryHackMe rooms",
+      "Cryptographic webhook signature verification and JWT authentication implementations"
+    ]
+  },
+  {
+    title: "Vulnerability Assessment & Hardening",
+    focus: "Security baselines, system hardening, remediation",
+    description:
+      "Learning structured vulnerability assessment methodologies to evaluate system configurations, review defense baselines, and suggest actionable remediation steps.",
+    practicalWork: [
+      "Auditing HTTP response headers against OWASP security baselines (CSP, HSTS, X-Frame-Options)",
+      "Linux security posture checks, permissions hygiene, and credential handling",
+      "Formulating structured vulnerability audit reports in clean PDF format for review"
+    ]
+  },
+  {
+    title: "Defensive & Offensive Foundations",
+    focus: "Ethical hacking concepts, threat modeling, security hygiene",
+    description:
+      "Developing a security-first mindset by understanding how attackers map targets and how defensive engineering protects application state and data assets.",
+    practicalWork: [
+      "Ongoing 6-month intensive training program (FRCD – CAP, CNP, ASA) at Tech By Heart",
+      "Completed hands-on internship in Cybersecurity & Ethical Hacking at ICT Academy of Kerala",
+      "Practicing structured capture-the-flag (CTF) and defensive reconnaissance scenarios"
+    ]
+  }
+];
+
+export interface TrainingProgram {
+  title: string;
+  track: string;
+  institution: string;
+  location: string;
+  duration: string;
+  status: string;
+  description: string;
+  competencies: string[];
+}
+
+export const CURRENT_TRAINING: TrainingProgram = {
+  title: "FRCD – CAP, CNP, ASA",
+  track: "Foundations in Cybersecurity, Certified Application & Network Penetration",
+  institution: "Tech By Heart",
+  location: "Thiruvananthapuram, Kerala, India",
+  duration: "Six-Month Comprehensive Training",
+  status: "Currently Pursuing",
+  description:
+    "An intensive, practical training programme dedicated to network security architecture, vulnerability assessment methodologies, web application penetration fundamentals, and system security administration.",
+  competencies: [
+    "Certified Network Professional (CNP) curriculum — network topologies, protocol analysis, firewall defense",
+    "Certified Application Penetration (CAP) — web vulnerability discovery, OWASP mapping, request tampering",
+    "Advanced Security Administration (ASA) — system hardening, incident triage fundamentals, defensive hygiene"
+  ]
+};
+
+export interface SkillCategory {
+  name: string;
+  isPrimary?: boolean;
+  tagline: string;
+  skills: {
+    name: string;
+    description: string;
+    badge?: string;
+  }[];
+}
+
+export const SKILL_CATEGORIES: SkillCategory[] = [
+  {
+    name: "Cybersecurity & Defenses",
+    isPrimary: true,
+    tagline: "Primary professional focus — tools, attack surfaces, and defensive standards.",
+    skills: [
+      { name: "Nmap & Port Auditing", description: "Host reconnaissance, TCP/UDP scanning, service banner enumeration", badge: "Core" },
+      { name: "OWASP Top 10", description: "Web application vulnerability analysis (SQLi, XSS, IDOR, Broken Auth)", badge: "Core" },
+      { name: "HTTP Defense Baselines", description: "Configuring and auditing CSP, HSTS, X-Frame-Options, Permissions-Policy", badge: "Applied" },
+      { name: "Wireshark & Packet Analysis", description: "Traffic inspection, protocol breakdown, unencrypted credential detection", badge: "Hands-on" },
+      { name: "Linux Security & Bash", description: "File permissions, service auditing, environment variable safety, shell scripting", badge: "Hands-on" },
+      { name: "Vulnerability Remediation", description: "Security report documentation, risk tiering, remediation guidance", badge: "Applied" }
+    ]
+  },
+  {
+    name: "Programming & Backend",
+    tagline: "Languages and asynchronous frameworks for secure web services and tooling.",
+    skills: [
+      { name: "Python", description: "FastAPI microservices, Nmap automation scripts, Scikit-learn pipelines", badge: "Primary" },
+      { name: "TypeScript / JavaScript", description: "Type-safe frontend logic, Next.js server actions, DOM workflows", badge: "Primary" },
+      { name: "FastAPI", description: "Asynchronous REST APIs, Pydantic validation schemas, JWT sessions", badge: "Framework" },
+      { name: "Next.js & React", description: "App Router, Server Components, client state, streaming UI", badge: "Framework" },
+      { name: "Java", description: "Object-oriented architecture, data structures, algorithm design", badge: "Core" },
+      { name: "SQL (SQLite & Postgres)", description: "Relational schema design, query structure, parameterized queries", badge: "Data" }
     ]
   },
   {
     name: "AI & Machine Learning",
-    summary: "Techniques and libraries I use for training, evaluating, and explaining models.",
-    items: [
-      { title: "Scikit-learn", description: "Classification pipelines, Random Forest, model evaluation" },
-      { title: "SHAP", description: "Explainable AI, feature contribution weighting, transparency" },
-      { title: "LLM Experimentation", description: "Prompt structuring, API integrations, context orchestration" },
-      { title: "Data Analysis", description: "Feature normalization, exploratory analysis on telemetry data" }
+    tagline: "Explainable predictive models and AI experimentation.",
+    skills: [
+      { name: "Scikit-learn", description: "Supervised classification, Random Forest, model evaluation metrics", badge: "ML" },
+      { name: "SHAP (Explainable AI)", description: "Feature importance weighting, interpretability for predictive models", badge: "XAI" },
+      { name: "LLM Orchestration", description: "Prompt structuring, API integrations, agentic workflows", badge: "Applied" },
+      { name: "Data Analysis", description: "Feature normalization, exploratory analysis on telemetry datasets", badge: "Analytics" }
     ]
   },
   {
-    name: "Cybersecurity & Defenses",
-    summary: "Practical experience auditing attack surfaces and defending web applications.",
-    items: [
-      { title: "Nmap", description: "Network port auditing, service version enumeration, host discovery" },
-      { title: "Vulnerability Scanning", description: "Identifying misconfigured servers and unpatched endpoints" },
-      { title: "HTTP Defense Baselines", description: "Auditing CSP, HSTS, X-Frame-Options against OWASP criteria" },
-      { title: "Ethical Hacking Basics", description: "Trained on reconnaissance, scanning, and remediation basics" }
-    ]
-  },
-  {
-    name: "Cloud & Developer Tools",
-    summary: "Platforms and workflows that keep builds running and deployments smooth.",
-    items: [
-      { title: "Git & GitHub", description: "Version control, branching workflows, open-source projects" },
-      { title: "Vercel", description: "Production deployments, serverless functions, edge routing" },
-      { title: "Clerk & Stripe", description: "Modern user authentication and webhook-backed payments" },
-      { title: "Linux & ngrok", description: "Command-line environments and secure local webhook tunnels" },
-      { title: "Power BI", description: "Relational data dashboards and KPI metric visualizations" }
+    name: "Cloud, Infrastructure & Ops",
+    tagline: "Development workflows, edge hosting, and security integrations.",
+    skills: [
+      { name: "Git & GitHub", description: "Version control, code reviews, open-source repositories", badge: "Daily" },
+      { name: "Vercel Platform", description: "Production edge deployments, serverless routing, CI/CD", badge: "Cloud" },
+      { name: "Clerk & Stripe", description: "Modern session auth and cryptographic webhook verification", badge: "Auth/Pay" },
+      { name: "ngrok & Linux Tunnels", description: "Secure ingress tunnels for local webhook testing", badge: "Tooling" },
+      { name: "Power BI", description: "Data visualization and executive KPI dashboards (ICT certified)", badge: "Analytics" }
     ]
   }
 ];
 
-export interface ExperienceItem {
-  role: string;
-  organization: string;
-  location: string;
-  period: string;
-  overview: string;
-  points: string[];
-}
-
-export const EXPERIENCE: ExperienceItem[] = [
-  {
-    role: "Cybersecurity & Ethical Hacking Intern",
-    organization: "ICT Academy of Kerala",
-    location: "Technopark, Thiruvananthapuram",
-    period: "2025",
-    overview:
-      "A hands-on training and internship program focused on foundational cybersecurity concepts, ethical reconnaissance, and practical vulnerability testing.",
-    points: [
-      "Conducted network reconnaissance exercises using Nmap to scan open ports and examine active service banners",
-      "Studied common web application security risks aligned with the OWASP Top 10 guidelines",
-      "Worked through defensive configuration exercises to understand how system hardening prevents unauthorized access"
-    ]
-  }
-];
-
-export interface Certification {
+export interface VerifiedCredential {
   title: string;
   issuer: string;
   year: string;
-  topic: string;
+  category: "Security" | "AI & ML" | "Analytics" | "Systems";
 }
 
-export const CERTIFICATIONS: Certification[] = [
+export const VERIFIED_CREDENTIALS: VerifiedCredential[] = [
   {
     title: "Cybersecurity & Ethical Hacking Training",
     issuer: "ICT Academy of Kerala",
     year: "2025",
-    topic: "Security"
+    category: "Security"
   },
   {
     title: "Unlocking the Power of Large Language Models (LLMs)",
     issuer: "IBM",
     year: "2024",
-    topic: "AI"
+    category: "AI & ML"
   },
   {
     title: "AI for Students: Build Your Own Generative AI Model",
-    issuer: "Technical Workshop",
+    issuer: "Industry Workshop",
     year: "2024",
-    topic: "AI"
+    category: "AI & ML"
   },
   {
     title: "Data Visualization with Power BI",
     issuer: "ICT Academy of Kerala",
     year: "2024",
-    topic: "Data"
+    category: "Analytics"
   },
   {
     title: "Add-on Program on Internet of Things (IoT)",
     issuer: "ICT Academy of Kerala",
     year: "2024",
-    topic: "Systems"
+    category: "Systems"
   }
 ];
