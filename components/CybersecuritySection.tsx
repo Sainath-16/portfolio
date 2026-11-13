@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { Shield, CheckCircle2 } from "lucide-react";
+import { Shield, CheckCircle2, ArrowUpRight } from "lucide-react";
 import { SECURITY_PILLARS, CURRENT_TRAINING } from "@/lib/portfolio-data";
+import { BrandTryHackMe } from "./BrandIcons";
 
 export function CybersecuritySection() {
   const [activePillar, setActivePillar] = useState(0);
@@ -21,8 +22,64 @@ export function CybersecuritySection() {
           </h2>
         </div>
         <p className="text-sm text-[#9da3af] max-w-md font-light leading-relaxed">
-          My primary career trajectory is in cybersecurity. Here is how I practice defensive engineering, network reconnaissance, and web vulnerability auditing.
+          My primary career trajectory is in cybersecurity. Here is how I combine structured classroom training with hands-on lab experimentation.
         </p>
+      </div>
+
+      {/* TryHackMe & Independent Hands-On Learning Spotlight Banner */}
+      <div className="mb-16 p-7 sm:p-8 rounded-2xl bg-[#0f1319]/90 border border-white/[0.08] relative overflow-hidden backdrop-blur-md shadow-xl">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-8 space-y-4">
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium text-red-400 bg-red-950/40 border border-red-500/30">
+                <BrandTryHackMe size={14} className="text-red-400" />
+                <span>Hands-On Lab Platform</span>
+              </span>
+              <span className="text-xs font-mono text-[#8b949e]">
+                Independent Practical Practice
+              </span>
+            </div>
+
+            <h3 className="text-2xl sm:text-3xl font-serif text-white tracking-tight">
+              Hands-On Security Learning on TryHackMe
+            </h3>
+
+            <p className="text-xs sm:text-sm text-[#cbd5e1] leading-relaxed max-w-2xl">
+              I complement my formal training at <strong className="text-white">Tech By Heart</strong> with continuous hands-on labs on <strong className="text-white">TryHackMe</strong>. I use the platform to explore Linux command-line environments, network scanning techniques, and fundamental web security vulnerability walkthroughs in sandboxed practice machines.
+            </p>
+
+            <div className="flex flex-wrap gap-2 pt-1">
+              <span className="text-[11px] font-mono px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.06] text-[#cbd5e1]">
+                Network Service Enumeration
+              </span>
+              <span className="text-[11px] font-mono px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.06] text-[#cbd5e1]">
+                Linux Privilege Basics
+              </span>
+              <span className="text-[11px] font-mono px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.06] text-[#cbd5e1]">
+                Web App Exploitation Labs
+              </span>
+              <span className="text-[11px] font-mono px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.06] text-[#cbd5e1]">
+                Defensive Triage
+              </span>
+            </div>
+          </div>
+
+          <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center gap-3">
+            <a
+              href="https://tryhackme.com/p/sainaths2005"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl text-xs font-semibold text-white bg-red-600 hover:bg-red-500 transition-all shadow-[0_0_24px_rgba(239,68,68,0.25)] active:scale-95"
+            >
+              <BrandTryHackMe size={16} />
+              <span>Visit My TryHackMe Profile</span>
+              <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+            <span className="text-[11px] font-mono text-[#8b949e]">
+              Username: <span className="text-white">sainaths2005</span>
+            </span>
+          </div>
+        </div>
       </div>
 
       {/* Structured Security Pillars Interactive Rail */}
@@ -88,7 +145,7 @@ export function CybersecuritySection() {
         </div>
       </div>
 
-      {/* Featured Current Training Program Card */}
+      {/* Featured Current Training Program Card (Tech By Heart) */}
       <div className="p-8 rounded-2xl bg-gradient-to-br from-[#121720] to-[#0d1015] border border-emerald-500/25 relative overflow-hidden shadow-xl">
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 relative z-10">
           <div className="space-y-3 max-w-2xl">
