@@ -57,33 +57,33 @@ export function Navigation() {
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         scrolled
-          ? "bg-[#F3F0E8]/90 backdrop-blur-md border-b border-[#DCD6C8] shadow-[0_4px_20px_rgba(32,35,31,0.04)] py-4"
+          ? "bg-[#FFF0E5]/90 backdrop-blur-md border-b border-[#E5CABE] shadow-[0_4px_24px_rgba(67,13,28,0.06)] py-4"
           : "bg-transparent border-b border-transparent py-6"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        {/* Brand / Name Monogram */}
+        {/* Brand / Monogram */}
         <a
           href="#overview"
           onClick={(e) => handleNavClick(e, "#overview")}
-          className="group flex items-center gap-3 text-[#20231F] transition-opacity hover:opacity-90"
+          className="group flex items-center gap-3 text-[#430D1C] transition-opacity hover:opacity-90"
         >
-          <div className="w-8 h-8 rounded-full bg-[#EBE6DA] border border-[#DCD6C8] flex items-center justify-center text-[#345A46] font-serif text-sm font-semibold group-hover:border-[#345A46] transition-colors">
+          <div className="w-8 h-8 rounded-full bg-[#F8E7DB] border border-[#E5CABE] flex items-center justify-center text-[#430D1C] font-serif text-sm font-semibold group-hover:border-[#FF493D] transition-colors">
             S
           </div>
           <div className="flex flex-col">
-            <span className="text-sm font-semibold tracking-tight text-[#20231F] flex items-center gap-2 font-sans">
+            <span className="text-sm font-semibold tracking-tight text-[#430D1C] flex items-center gap-2 font-sans">
               Sainath S
-              <span className="w-1.5 h-1.5 rounded-full bg-[#345A46]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FF493D] animate-pulse" />
             </span>
-            <span className="text-[11px] font-mono text-[#73766E]">
+            <span className="text-[11px] font-mono text-[#8F5462]">
               Cybersecurity & Software
             </span>
           </div>
         </a>
 
         {/* Desktop Editorial Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1 bg-[#EBE6DA]/60 px-3 py-1.5 rounded-full border border-[#DCD6C8]">
+        <nav className="hidden md:flex items-center gap-1 bg-[#F8E7DB]/90 px-3 py-1.5 rounded-full border border-[#E5CABE]">
           {NAV_LINKS.map((item) => {
             const isActive = activeId === item.href.replace("#", "");
             return (
@@ -93,8 +93,8 @@ export function Navigation() {
                 onClick={(e) => handleNavClick(e, item.href)}
                 className={`px-3.5 py-1 text-xs font-medium rounded-full transition-all ${
                   isActive
-                    ? "bg-[#345A46] text-[#F3F0E8] shadow-sm"
-                    : "text-[#575B53] hover:text-[#20231F]"
+                    ? "bg-[#430D1C] text-[#FFF0E5] shadow-sm"
+                    : "text-[#6B2D3C] hover:text-[#430D1C] hover:bg-[#F2DDCF]/60"
                 }`}
               >
                 {item.label}
@@ -103,13 +103,13 @@ export function Navigation() {
           })}
         </nav>
 
-        {/* Social Icons & Primary Contact CTA */}
+        {/* Social Icons & Primary Vermillion CTA */}
         <div className="hidden sm:flex items-center gap-3">
           <a
             href="https://github.com/Sainath-16"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-full text-[#575B53] hover:text-[#20231F] hover:bg-[#EBE6DA] transition-colors"
+            className="p-2 rounded-full text-[#6B2D3C] hover:text-[#430D1C] hover:bg-[#F8E7DB] transition-colors"
             aria-label="GitHub Profile"
           >
             <BrandGithub size={17} />
@@ -118,7 +118,7 @@ export function Navigation() {
             href="https://linkedin.com/in/sainaths18"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-full text-[#575B53] hover:text-[#20231F] hover:bg-[#EBE6DA] transition-colors"
+            className="p-2 rounded-full text-[#6B2D3C] hover:text-[#430D1C] hover:bg-[#F8E7DB] transition-colors"
             aria-label="LinkedIn Profile"
           >
             <BrandLinkedin size={17} />
@@ -126,7 +126,7 @@ export function Navigation() {
           <a
             href="#contact"
             onClick={(e) => handleNavClick(e, "#contact")}
-            className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-medium text-[#F3F0E8] bg-[#20231F] hover:bg-[#345A46] transition-colors shadow-sm"
+            className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-semibold text-[#FFF0E5] bg-[#FF493D] hover:bg-[#E8392D] transition-all shadow-[0_2px_12px_rgba(255,73,61,0.25)] hover:shadow-[0_4px_16px_rgba(255,73,61,0.35)] active:scale-95"
           >
             <span>Write Me</span>
             <ArrowUpRight size={13} />
@@ -137,7 +137,7 @@ export function Navigation() {
         <button
           type="button"
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden p-2 text-[#20231F] hover:text-[#345A46]"
+          className="md:hidden p-2 text-[#430D1C] hover:text-[#FF493D] transition-colors"
           aria-label="Toggle navigation"
         >
           {mobileOpen ? <X size={20} /> : <Menu size={20} />}
@@ -146,25 +146,33 @@ export function Navigation() {
 
       {/* Mobile Drawer */}
       {mobileOpen && (
-        <div className="md:hidden bg-[#F3F0E8] border-b border-[#DCD6C8] px-6 py-6 mt-3 shadow-lg">
+        <div className="md:hidden bg-[#FFF0E5] border-b border-[#E5CABE] px-6 py-6 mt-3 shadow-lg">
           <nav className="flex flex-col gap-3">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="text-sm font-medium text-[#575B53] hover:text-[#20231F] py-1"
-              >
-                {link.label}
-              </a>
-            ))}
-            <div className="pt-4 border-t border-[#DCD6C8] flex items-center justify-between">
-              <div className="flex gap-4">
+            {NAV_LINKS.map((item) => {
+              const isActive = activeId === item.href.replace("#", "");
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${
+                    isActive
+                      ? "bg-[#430D1C] text-[#FFF0E5]"
+                      : "text-[#6B2D3C] hover:bg-[#F8E7DB]"
+                  }`}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
+            <div className="pt-4 border-t border-[#E5CABE] flex items-center justify-between">
+              <div className="flex items-center gap-3">
                 <a
                   href="https://github.com/Sainath-16"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#575B53] hover:text-[#20231F]"
+                  className="p-2 text-[#6B2D3C] hover:text-[#430D1C]"
+                  aria-label="GitHub Profile"
                 >
                   <BrandGithub size={18} />
                 </a>
@@ -172,7 +180,8 @@ export function Navigation() {
                   href="https://linkedin.com/in/sainaths18"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#575B53] hover:text-[#20231F]"
+                  className="p-2 text-[#6B2D3C] hover:text-[#430D1C]"
+                  aria-label="LinkedIn Profile"
                 >
                   <BrandLinkedin size={18} />
                 </a>
@@ -180,9 +189,10 @@ export function Navigation() {
               <a
                 href="#contact"
                 onClick={(e) => handleNavClick(e, "#contact")}
-                className="text-xs font-medium text-[#F3F0E8] bg-[#20231F] px-4 py-1.5 rounded-full"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold text-[#FFF0E5] bg-[#FF493D]"
               >
-                Get in touch
+                <span>Write Me</span>
+                <ArrowUpRight size={13} />
               </a>
             </div>
           </nav>

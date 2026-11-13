@@ -28,35 +28,35 @@ export function EditorialCanvas() {
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
       {/* Editorial Hairline Grid Background */}
-      <div className="absolute inset-0 editorial-lines opacity-60" />
+      <div className="absolute inset-0 editorial-lines opacity-70" />
 
-      {/* Gentle Forest Tone Ambient Light Following Cursor */}
+      {/* Atmospheric Black Cherry Ambient Pool Following Cursor */}
       <div
-        className="absolute w-[680px] h-[680px] rounded-full blur-[160px] opacity-20 transition-transform duration-1000 ease-out"
+        className="absolute w-[680px] h-[680px] rounded-full blur-[170px] opacity-15 transition-transform duration-1000 ease-out"
         style={{
-          background: "radial-gradient(circle, #345A46 0%, transparent 65%)",
-          transform: `translate(${mousePos.x * 30 - 15}vw, ${mousePos.y * 25 - 12}vh)`,
-          top: "8%",
-          left: "20%",
+          background: "radial-gradient(circle, #430D1C 0%, transparent 65%)",
+          transform: `translate(${mousePos.x * 25 - 12}vw, ${mousePos.y * 20 - 10}vh)`,
+          top: "6%",
+          left: "18%",
         }}
       />
 
-      {/* Soft Warm Copper Light Pool */}
+      {/* Subtle Warm Vermillion Light Arc Pool */}
       <div
-        className="absolute w-[560px] h-[560px] rounded-full blur-[180px] opacity-15"
+        className="absolute w-[520px] h-[520px] rounded-full blur-[190px] opacity-10"
         style={{
-          background: "radial-gradient(circle, #A66F50 0%, transparent 70%)",
-          top: "45%",
-          right: "10%",
+          background: "radial-gradient(circle, #FF493D 0%, transparent 70%)",
+          top: "40%",
+          right: "8%",
         }}
       />
 
-      {/* Tactile Paper Texture */}
+      {/* Tactile Paper Grain Texture */}
       <div className="absolute inset-0 paper-grain pointer-events-none" />
 
-      {/* Thin Top Reading Progress Indicator in Forest Green */}
+      {/* Thin Top Reading Progress Indicator in Vermillion */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-[2px] bg-[#345A46] origin-left z-50 opacity-80"
+        className="fixed top-0 left-0 right-0 h-[2.5px] bg-[#FF493D] origin-left z-50 opacity-90 shadow-[0_0_8px_rgba(255,73,61,0.5)]"
         style={{ scaleX: smoothProgress }}
       />
     </div>

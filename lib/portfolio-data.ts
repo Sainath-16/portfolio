@@ -34,8 +34,8 @@ export const PROJECTS: Project[] = [
     ],
     techStack: ["Python", "FastAPI", "Nmap", "Next.js", "Linux", "Tailwind CSS"],
     githubUrl: "https://github.com/Sainath-16/SurfaceCheck",
-    accent: "#345A46", // Forest ink
-    accentMuted: "#E4EDE7",
+    accent: "#FF493D", // Vermillion
+    accentMuted: "#FFF0E5",
     featured: true,
     type: "security"
   },
@@ -57,8 +57,8 @@ export const PROJECTS: Project[] = [
     ],
     techStack: ["Python", "FastAPI", "Next.js", "Scikit-learn", "SHAP", "SQLite", "Tailwind CSS"],
     githubUrl: "https://github.com/Sainath-16/mentra.os",
-    accent: "#2A4365", // Deep slate blue
-    accentMuted: "#E2E8F0",
+    accent: "#430D1C", // Black Cherry
+    accentMuted: "#F8E7DB",
     featured: true,
     type: "telemetry"
   },
@@ -80,8 +80,8 @@ export const PROJECTS: Project[] = [
     ],
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
     githubUrl: "https://github.com/Sainath-16/kickbracket-pro",
-    accent: "#A66F50", // Earthy copper
-    accentMuted: "#F5EBE6",
+    accent: "#FF493D", // Vermillion
+    accentMuted: "#F2DDCF",
     featured: true,
     type: "realtime"
   },
@@ -102,8 +102,8 @@ export const PROJECTS: Project[] = [
     ],
     techStack: ["Next.js", "TypeScript", "Clerk Auth", "Stripe", "ngrok", "Tailwind CSS"],
     githubUrl: "https://github.com/Sainath-16/showmaze",
-    accent: "#6B46C1",
-    accentMuted: "#F3E8FF",
+    accent: "#561626", // Deep Cherry
+    accentMuted: "#F8E7DB",
     featured: false,
     type: "transactional"
   },
@@ -124,8 +124,8 @@ export const PROJECTS: Project[] = [
     ],
     techStack: ["Java", "OOP Architecture", "Algorithms", "Software Design"],
     githubUrl: "https://github.com/Sainath-16/AI-Quiz-Generator",
-    accent: "#4A5568",
-    accentMuted: "#EDF2F7",
+    accent: "#430D1C", // Black Cherry
+    accentMuted: "#F8E7DB",
     featured: false,
     type: "algorithmic"
   }

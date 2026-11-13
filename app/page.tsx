@@ -10,7 +10,7 @@ import { Contact } from "@/components/Contact";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-[#F3F0E8] text-[#20231F]">
+    <div className="relative min-h-screen bg-[#FFF0E5] text-[#430D1C]">
       <EditorialCanvas />
       <div className="relative z-10">
         <Navigation />
