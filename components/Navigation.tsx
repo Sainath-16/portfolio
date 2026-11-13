@@ -1,46 +1,46 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { ArrowUpRight, Menu, X, Shield } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { BrandGithub, BrandLinkedin } from "./BrandIcons";
 
-const NAV_ITEMS = [
+const NAV_LINKS = [
   { label: "Overview", href: "#overview" },
   { label: "Cybersecurity", href: "#cybersecurity" },
-  { label: "Projects", href: "#projects" },
   { label: "Training", href: "#training" },
+  { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" }
 ];
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("overview");
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeId, setActiveId] = useState("overview");
 
   useEffect(() => {
-    const handleScroll = () => {
+    const onScroll = () => {
       setScrolled(window.scrollY > 30);
 
-      const sections = ["overview", "cybersecurity", "projects", "training", "skills", "contact"];
+      const sections = ["overview", "cybersecurity", "training", "projects", "skills", "contact"];
       const scrollPos = window.scrollY + 200;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i]);
         if (el && scrollPos >= el.offsetTop) {
-          setActiveSection(sections[i]);
+          setActiveId(sections[i]);
           break;
         }
       }
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    setMobileMenuOpen(false);
+    setMobileOpen(false);
     const id = href.replace("#", "");
     const target = document.getElementById(id);
     if (target) {
@@ -57,44 +57,44 @@ export function Navigation() {
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         scrolled
-          ? "bg-[#090b0e]/90 backdrop-blur-md border-b border-white/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.6)] py-3.5"
-          : "bg-transparent border-b border-transparent py-5"
+          ? "bg-[#F3F0E8]/90 backdrop-blur-md border-b border-[#DCD6C8] shadow-[0_4px_20px_rgba(32,35,31,0.04)] py-4"
+          : "bg-transparent border-b border-transparent py-6"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        {/* Brandmark with Security Node Badge */}
+        {/* Brand / Name Monogram */}
         <a
           href="#overview"
-          onClick={(e) => scrollTo(e, "#overview")}
-          className="group flex items-center gap-3 text-white transition-opacity hover:opacity-90"
+          onClick={(e) => handleNavClick(e, "#overview")}
+          className="group flex items-center gap-3 text-[#20231F] transition-opacity hover:opacity-90"
         >
-          <div className="w-8 h-8 rounded-lg bg-emerald-950/40 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:border-emerald-400/60 transition-colors shadow-[0_0_12px_rgba(16,185,129,0.15)]">
-            <Shield size={16} strokeWidth={2} />
+          <div className="w-8 h-8 rounded-full bg-[#EBE6DA] border border-[#DCD6C8] flex items-center justify-center text-[#345A46] font-serif text-sm font-semibold group-hover:border-[#345A46] transition-colors">
+            S
           </div>
           <div className="flex flex-col">
-            <span className="text-sm font-semibold tracking-tight text-white flex items-center gap-2">
+            <span className="text-sm font-semibold tracking-tight text-[#20231F] flex items-center gap-2 font-sans">
               Sainath S
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#345A46]" />
             </span>
-            <span className="text-[11px] font-mono text-[#8b949e]">
-              Cybersecurity & CS
+            <span className="text-[11px] font-mono text-[#73766E]">
+              Cybersecurity & Software
             </span>
           </div>
         </a>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1 bg-white/[0.03] px-3 py-1.5 rounded-full border border-white/[0.06] backdrop-blur-sm">
-          {NAV_ITEMS.map((item) => {
-            const isActive = activeSection === item.href.replace("#", "");
+        {/* Desktop Editorial Navigation Links */}
+        <nav className="hidden md:flex items-center gap-1 bg-[#EBE6DA]/60 px-3 py-1.5 rounded-full border border-[#DCD6C8]">
+          {NAV_LINKS.map((item) => {
+            const isActive = activeId === item.href.replace("#", "");
             return (
               <a
                 key={item.label}
                 href={item.href}
-                onClick={(e) => scrollTo(e, item.href)}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className={`px-3.5 py-1 text-xs font-medium rounded-full transition-all ${
                   isActive
-                    ? "bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 shadow-[0_0_12px_rgba(16,185,129,0.15)]"
-                    : "text-[#9da3af] hover:text-white"
+                    ? "bg-[#345A46] text-[#F3F0E8] shadow-sm"
+                    : "text-[#575B53] hover:text-[#20231F]"
                 }`}
               >
                 {item.label}
@@ -103,14 +103,14 @@ export function Navigation() {
           })}
         </nav>
 
-        {/* Right Action Icons & Direct Connect */}
+        {/* Social Icons & Primary Contact CTA */}
         <div className="hidden sm:flex items-center gap-3">
           <a
             href="https://github.com/Sainath-16"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-lg text-[#9da3af] hover:text-white hover:bg-white/[0.04] transition-colors"
-            aria-label="GitHub profile"
+            className="p-2 rounded-full text-[#575B53] hover:text-[#20231F] hover:bg-[#EBE6DA] transition-colors"
+            aria-label="GitHub Profile"
           >
             <BrandGithub size={17} />
           </a>
@@ -118,53 +118,53 @@ export function Navigation() {
             href="https://linkedin.com/in/sainaths18"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-lg text-[#9da3af] hover:text-emerald-300 hover:bg-white/[0.04] transition-colors"
-            aria-label="LinkedIn profile"
+            className="p-2 rounded-full text-[#575B53] hover:text-[#20231F] hover:bg-[#EBE6DA] transition-colors"
+            aria-label="LinkedIn Profile"
           >
             <BrandLinkedin size={17} />
           </a>
           <a
             href="#contact"
-            onClick={(e) => scrollTo(e, "#contact")}
-            className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-semibold text-[#090b0e] bg-emerald-400 hover:bg-emerald-300 transition-all shadow-[0_0_16px_rgba(16,185,129,0.25)]"
+            onClick={(e) => handleNavClick(e, "#contact")}
+            className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-medium text-[#F3F0E8] bg-[#20231F] hover:bg-[#345A46] transition-colors shadow-sm"
           >
-            <span>Connect</span>
-            <ArrowUpRight size={13} strokeWidth={2.5} />
+            <span>Write Me</span>
+            <ArrowUpRight size={13} />
           </a>
         </div>
 
-        {/* Mobile menu button */}
+        {/* Mobile menu trigger */}
         <button
           type="button"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-[#9da3af] hover:text-white"
-          aria-label="Toggle navigation menu"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="md:hidden p-2 text-[#20231F] hover:text-[#345A46]"
+          aria-label="Toggle navigation"
         >
-          {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
       {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-[#090b0e]/98 border-b border-white/[0.08] px-6 py-6 mt-3">
+      {mobileOpen && (
+        <div className="md:hidden bg-[#F3F0E8] border-b border-[#DCD6C8] px-6 py-6 mt-3 shadow-lg">
           <nav className="flex flex-col gap-3">
-            {NAV_ITEMS.map((item) => (
+            {NAV_LINKS.map((link) => (
               <a
-                key={item.label}
-                href={item.href}
-                onClick={(e) => scrollTo(e, item.href)}
-                className="text-sm font-medium text-[#9da3af] hover:text-white py-1"
+                key={link.label}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="text-sm font-medium text-[#575B53] hover:text-[#20231F] py-1"
               >
-                {item.label}
+                {link.label}
               </a>
             ))}
-            <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between">
+            <div className="pt-4 border-t border-[#DCD6C8] flex items-center justify-between">
               <div className="flex gap-4">
                 <a
                   href="https://github.com/Sainath-16"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#9da3af] hover:text-white"
+                  className="text-[#575B53] hover:text-[#20231F]"
                 >
                   <BrandGithub size={18} />
                 </a>
@@ -172,17 +172,17 @@ export function Navigation() {
                   href="https://linkedin.com/in/sainaths18"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#9da3af] hover:text-emerald-400"
+                  className="text-[#575B53] hover:text-[#20231F]"
                 >
                   <BrandLinkedin size={18} />
                 </a>
               </div>
               <a
                 href="#contact"
-                onClick={(e) => scrollTo(e, "#contact")}
-                className="text-xs font-medium text-[#090b0e] bg-emerald-400 px-4 py-1.5 rounded-full font-semibold"
+                onClick={(e) => handleNavClick(e, "#contact")}
+                className="text-xs font-medium text-[#F3F0E8] bg-[#20231F] px-4 py-1.5 rounded-full"
               >
-                Connect
+                Get in touch
               </a>
             </div>
           </nav>

@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { PROJECTS } from "@/lib/portfolio-data";
 import { BrandGithub } from "./BrandIcons";
-import { ProjectVisualMockup } from "./ProjectVisualMockup";
 
 export function Projects() {
   const [activeId, setActiveId] = useState<string>("surfacecheck-api");
@@ -12,24 +11,24 @@ export function Projects() {
   const currentProject = PROJECTS.find((p) => p.id === activeId) || PROJECTS[0];
 
   return (
-    <section id="projects" className="py-28 px-6 max-w-6xl mx-auto border-t border-white/[0.06]">
-      {/* Section Header */}
+    <section id="projects" className="py-28 px-6 max-w-6xl mx-auto border-t border-[#DCD6C8]">
+      {/* Editorial Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
         <div>
-          <div className="text-xs font-mono uppercase tracking-widest text-[#8b949e] mb-2 flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-            <span>Applied Engineering</span>
+          <div className="text-xs font-mono uppercase tracking-widest text-[#73766E] mb-2 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#345A46]" />
+            <span>Built From Scratch</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-serif text-white tracking-tight">
-            Featured Projects & Tools
+          <h2 className="text-3xl sm:text-5xl font-serif text-[#20231F] tracking-tight">
+            Selected Engineering Projects
           </h2>
         </div>
-        <p className="text-sm text-[#9da3af] max-w-md font-light leading-relaxed">
-          Real tools and platforms I have architected and coded. Includes my automated security scanner, explainable AI model, and tournament software.
+        <p className="text-sm text-[#575B53] max-w-md font-light leading-relaxed">
+          Open-source security tools, explainable AI platforms, and real-time tournament systems that I have architected and coded.
         </p>
       </div>
 
-      {/* Visual Navigation Tabs */}
+      {/* Project Selector Rail */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 mb-10">
         {PROJECTS.map((proj) => {
           const isSelected = activeId === proj.id;
@@ -40,21 +39,21 @@ export function Projects() {
               onClick={() => setActiveId(proj.id)}
               className={`text-left p-4 rounded-xl border transition-all ${
                 isSelected
-                  ? "bg-[#141820] border-white/[0.2] shadow-lg text-white"
-                  : "bg-white/[0.015] border-white/[0.04] hover:bg-white/[0.03] text-[#8b949e]"
+                  ? "bg-[#EBE6DA] border-[#345A46] text-[#20231F] shadow-sm"
+                  : "bg-[#F3F0E8] border-[#DCD6C8] hover:bg-[#EBE6DA]/50 text-[#73766E]"
               }`}
             >
               <div className="flex items-center justify-between mb-1 text-[11px] font-mono">
-                <span className={isSelected ? "text-emerald-400 font-semibold" : "text-[#656c7a]"}>
+                <span className={isSelected ? "text-[#345A46] font-semibold" : "text-[#73766E]"}>
                   {proj.number}
                 </span>
                 <span
                   className="w-1.5 h-1.5 rounded-full"
-                  style={{ backgroundColor: isSelected ? proj.accent : "transparent" }}
+                  style={{ backgroundColor: isSelected ? "#345A46" : "transparent" }}
                 />
               </div>
-              <div className="text-sm font-semibold text-white truncate">{proj.title}</div>
-              <div className="text-[10px] text-[#656c7a] truncate mt-0.5 font-mono">
+              <div className="text-sm font-semibold text-[#20231F] truncate">{proj.title}</div>
+              <div className="text-[10px] text-[#73766E] truncate mt-0.5 font-mono">
                 {proj.category.split("·")[0]}
               </div>
             </button>
@@ -62,121 +61,155 @@ export function Projects() {
         })}
       </div>
 
-      {/* Immersive Main Showcase Card */}
-      <div className="rounded-2xl bg-[#0f1319]/90 border border-white/[0.08] p-6 sm:p-10 backdrop-blur-md">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          {/* Left Column: Full Product Specs */}
-          <div className="lg:col-span-6 space-y-6">
+      {/* Main Selected Project Showcase Box */}
+      <div className="rounded-2xl bg-[#EBE6DA]/80 border border-[#DCD6C8] p-7 sm:p-10 shadow-[0_8px_30px_rgba(32,35,31,0.03)]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          {/* Left Column: Comprehensive Spec & Real Reasoning (7 Cols) */}
+          <div className="lg:col-span-7 space-y-6">
             <div className="flex flex-wrap items-center gap-2.5">
-              <span className="text-xs font-mono text-[#656c7a]">{currentProject.number}</span>
-              <span className="text-xs font-mono px-3 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-white">
+              <span className="text-xs font-mono text-[#73766E]">{currentProject.number}</span>
+              <span className="text-xs font-mono px-3 py-0.5 rounded-full bg-[#F3F0E8] border border-[#DCD6C8] text-[#20231F]">
                 {currentProject.category}
               </span>
             </div>
 
             <div>
-              <h3 className="text-2xl sm:text-3xl font-serif text-white tracking-tight mb-2">
+              <h3 className="text-3xl sm:text-4xl font-serif text-[#20231F] tracking-tight mb-2">
                 {currentProject.title}
               </h3>
-              <p className="text-sm sm:text-base font-medium text-emerald-300/90 leading-relaxed">
+              <p className="text-sm sm:text-base font-medium text-[#345A46] leading-relaxed">
                 {currentProject.tagline}
               </p>
             </div>
 
-            <div className="space-y-4 text-xs sm:text-sm text-[#9da3af] leading-relaxed">
+            <div className="space-y-4 text-xs sm:text-sm text-[#575B53] leading-relaxed font-light">
               <p>{currentProject.description}</p>
 
-              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.04]">
-                <div className="text-[11px] font-mono uppercase text-[#8b949e] mb-1">
-                  Why this matters
+              <div className="p-4 rounded-xl bg-[#F3F0E8] border border-[#DCD6C8]">
+                <div className="text-[11px] font-mono uppercase text-[#73766E] mb-1 font-semibold">
+                  Why this problem matters
                 </div>
-                <p className="text-xs text-[#cbd5e1] leading-relaxed">
+                <p className="text-xs text-[#20231F] leading-relaxed">
                   {currentProject.whyItMatters}
                 </p>
               </div>
             </div>
 
-            {/* Technical & Security Highlights */}
+            {/* Technical Scope Breakdown */}
             <div className="space-y-2 pt-2">
-              <div className="text-[11px] font-mono uppercase tracking-wider text-[#8b949e]">
-                Technical & Security Scope
+              <div className="text-[11px] font-mono uppercase tracking-wider text-[#73766E]">
+                Technical Implementation Details
               </div>
-              <ul className="space-y-2 text-xs text-[#9da3af]">
-                {currentProject.securityOrArchitectureHighlights.map((point, i) => (
-                  <li key={i} className="flex items-start gap-2.5 leading-relaxed">
-                    <CheckCircle2 size={14} className="text-emerald-400 mt-0.5 shrink-0" />
+              <ul className="space-y-2 text-xs text-[#575B53]">
+                {currentProject.technicalDepth.map((point, i) => (
+                  <li key={i} className="flex items-start gap-2.5 leading-relaxed font-light">
+                    <CheckCircle2 size={14} className="text-[#345A46] mt-0.5 shrink-0" />
                     <span>{point}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Technology Stack Tags */}
-            <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/[0.06]">
+            {/* Tech Stack Chips */}
+            <div className="flex flex-wrap gap-1.5 pt-4 border-t border-[#DCD6C8]">
               {currentProject.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-2.5 py-1 rounded text-xs font-mono bg-white/[0.03] text-[#cbd5e1] border border-white/[0.05]"
+                  className="px-2.5 py-1 rounded-md text-xs font-mono bg-[#F3F0E8] text-[#575B53] border border-[#DCD6C8]"
                 >
                   {tech}
                 </span>
               ))}
             </div>
 
-            {/* Inspect Source Action */}
+            {/* Source Code Action Button */}
             <div className="pt-2 flex items-center gap-3">
               <a
                 href={currentProject.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold text-[#090b0e] bg-emerald-400 hover:bg-emerald-300 transition-all shadow-[0_0_15px_rgba(16,185,129,0.2)]"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold text-[#F3F0E8] bg-[#20231F] hover:bg-[#345A46] transition-all shadow-sm active:scale-95"
               >
                 <BrandGithub size={15} />
-                <span>Inspect Repository</span>
-                <ArrowUpRight size={13} strokeWidth={2.5} />
+                <span>Inspect Repository on GitHub</span>
+                <ArrowUpRight size={13} />
               </a>
             </div>
           </div>
 
-          {/* Right Column: Custom Visual Product Mockup */}
-          <div className="lg:col-span-6 h-[340px] sm:h-[420px]">
-            <ProjectVisualMockup
-              type={currentProject.visualType}
-              color={currentProject.accent}
-            />
+          {/* Right Column: Editorial Technical Dossier / Architecture Preview (5 Cols) */}
+          <div className="lg:col-span-5 p-6 rounded-xl bg-[#F3F0E8] border border-[#DCD6C8] space-y-5 font-mono text-xs">
+            <div className="flex items-center justify-between pb-3 border-b border-[#DCD6C8] text-[#73766E]">
+              <span>project.dossier</span>
+              <span className="text-[#345A46] font-semibold">Active Review</span>
+            </div>
+
+            <div className="space-y-3">
+              <div>
+                <div className="text-[11px] text-[#73766E] uppercase">Architecture Style</div>
+                <div className="text-sm font-sans font-semibold text-[#20231F] mt-0.5">
+                  {currentProject.type === "security" && "Asynchronous Scanning Microservice"}
+                  {currentProject.type === "telemetry" && "Decoupled Telemetry & SHAP XAI"}
+                  {currentProject.type === "realtime" && "Low-Latency Edge Replication"}
+                  {currentProject.type === "transactional" && "Webhook-Reconciled Payments"}
+                  {currentProject.type === "algorithmic" && "OOP Domain Model Architecture"}
+                </div>
+              </div>
+
+              <div>
+                <div className="text-[11px] text-[#73766E] uppercase">Primary Language & Runtime</div>
+                <div className="text-xs text-[#20231F] mt-0.5">
+                  {currentProject.techStack.slice(0, 3).join(" · ")}
+                </div>
+              </div>
+
+              <div className="p-3 rounded-lg bg-[#EBE6DA] space-y-1 text-[11px] leading-relaxed text-[#575B53]">
+                <div className="text-[#20231F] font-semibold">Verification Standard:</div>
+                {currentProject.type === "security" && "Tested against local network targets and OWASP header benchmarks."}
+                {currentProject.type === "telemetry" && "Cross-validated classification models on student survey cohort telemetry."}
+                {currentProject.type === "realtime" && "Validated 3-second spectator replication loop under high concurrency."}
+                {currentProject.type === "transactional" && "Cryptographic Stripe webhook signature verification tested with ngrok."}
+                {currentProject.type === "algorithmic" && "Object-oriented question pools with randomized distractor logic."}
+              </div>
+            </div>
+
+            <div className="pt-3 border-t border-[#DCD6C8] flex items-center justify-between text-[11px] text-[#73766E]">
+              <span>Repository Status:</span>
+              <span className="text-[#345A46] font-semibold">Public & Open</span>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Full Repositories Table */}
+      {/* Complete Project Archive Table */}
       <div className="mt-14">
-        <div className="text-xs font-mono uppercase tracking-widest text-[#8b949e] mb-4">
-          All Repositories ({PROJECTS.length})
+        <div className="text-xs font-mono uppercase tracking-widest text-[#73766E] mb-4">
+          All Project Repositories ({PROJECTS.length})
         </div>
-        <div className="divide-y divide-white/[0.06] border-y border-white/[0.06]">
+        <div className="divide-y divide-[#DCD6C8] border-y border-[#DCD6C8]">
           {PROJECTS.map((proj) => (
             <div
               key={proj.id}
-              className="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 group hover:bg-white/[0.015] px-2 -mx-2 rounded transition-colors"
+              className="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-[#EBE6DA]/50 px-2 -mx-2 rounded transition-colors"
             >
               <div className="flex items-baseline gap-4">
-                <span className="text-xs font-mono text-[#656c7a]">{proj.number}</span>
+                <span className="text-xs font-mono text-[#73766E]">{proj.number}</span>
                 <div>
                   <a
                     href={proj.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-semibold text-white hover:text-emerald-400 transition-colors inline-flex items-center gap-1.5"
+                    className="text-sm font-semibold text-[#20231F] hover:text-[#345A46] transition-colors inline-flex items-center gap-1.5"
                   >
                     <span>{proj.title}</span>
-                    <ArrowUpRight size={13} className="opacity-40 group-hover:opacity-100 transition-opacity" />
+                    <ArrowUpRight size={13} className="opacity-40" />
                   </a>
-                  <p className="text-xs text-[#8b949e] line-clamp-1 mt-0.5">{proj.tagline}</p>
+                  <p className="text-xs text-[#73766E] line-clamp-1 mt-0.5 font-light">{proj.tagline}</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-3 self-start sm:self-auto">
-                <span className="text-[11px] font-mono text-[#656c7a] hidden md:inline">
+                <span className="text-[11px] font-mono text-[#73766E] hidden md:inline">
                   {proj.techStack.slice(0, 3).join(", ")}
                 </span>
                 <button
@@ -188,9 +221,9 @@ export function Projects() {
                       el.scrollIntoView({ behavior: "smooth" });
                     }
                   }}
-                  className="text-xs font-mono text-emerald-400 hover:underline"
+                  className="text-xs font-mono text-[#345A46] hover:underline font-medium"
                 >
-                  View Spec →
+                  View Details →
                 </button>
               </div>
             </div>

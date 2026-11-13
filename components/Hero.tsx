@@ -2,70 +2,75 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowDown, ArrowUpRight, ShieldCheck, Cpu, Network, Layers } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Shield, Cpu, Code2, Cloud } from "lucide-react";
 import { BrandGithub, BrandLinkedin } from "./BrandIcons";
 
 export function Hero() {
   return (
     <section
       id="overview"
-      className="relative min-h-[92vh] flex flex-col justify-center pt-32 pb-20 px-6 max-w-6xl mx-auto"
+      className="relative min-h-[88vh] flex flex-col justify-center pt-32 pb-20 px-6 max-w-6xl mx-auto"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-        {/* Left Column: Authentic Cybersecurity Positioning */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-start">
+        {/* Left Column: Natural, Human Introduction (7 Columns) */}
         <div className="lg:col-span-7 space-y-7">
-          {/* Active Training Status Badge */}
+          {/* Subtle Location & Disciplinary Eyebrow */}
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-emerald-950/40 border border-emerald-500/25 text-xs text-emerald-300 font-mono shadow-[0_0_15px_rgba(16,185,129,0.1)]"
+            className="flex items-center gap-3 text-xs font-mono text-[#73766E]"
           >
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Pursuing 6-Month Cybersecurity Training (FRCD – Tech By Heart)</span>
+            <span className="w-2 h-2 rounded-full bg-[#345A46]" />
+            <span>Thiruvananthapuram, Kerala</span>
+            <span>·</span>
+            <span>Computer Science Graduate</span>
           </motion.div>
 
-          {/* Core Headline */}
+          {/* Natural Editorial Headline */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
             className="space-y-4"
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif tracking-tight text-white leading-[1.12]">
-              Exploring security. <br className="hidden sm:inline" />
-              Building intelligent software.
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-[#20231F] tracking-tight leading-[1.12]">
+              Hi, I&apos;m Sainath. <br />
+              <span className="italic font-normal text-[#345A46]">
+                I explore cybersecurity, build software, and experiment with intelligent systems.
+              </span>
             </h1>
-            <p className="text-base sm:text-lg text-[#9da3af] max-w-xl font-light leading-relaxed">
-              I am <span className="text-white font-medium">Sainath S</span>, a Computer Science undergraduate focused on <strong className="text-emerald-300 font-medium">Cybersecurity and Defensive Engineering</strong>, while actively building applications across AI, Machine Learning, and Full-Stack systems.
+
+            <p className="text-base sm:text-lg text-[#575B53] font-light leading-relaxed max-w-xl">
+              I am a Computer Science graduate from Kerala focused on <strong className="font-medium text-[#20231F]">Cybersecurity</strong> as my primary career path, while writing clean full-stack code and training explainable machine learning models.
             </p>
           </motion.div>
 
-          {/* Narrative Paragraph */}
+          {/* Genuine Narrative Text */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="text-xs sm:text-sm text-[#8b949e] leading-relaxed border-l-2 border-emerald-500/30 pl-4 space-y-2 max-w-xl"
+            className="text-xs sm:text-sm text-[#73766E] leading-relaxed border-l-2 border-[#DCD6C8] pl-4 space-y-2 max-w-xl"
           >
             <p>
-              My primary commitment is learning how systems break and how to defend them — from auditing exposed TCP ports with <span className="text-white">Nmap</span> and verifying <span className="text-white">OWASP defense headers</span> in my tool <span className="text-white font-medium">SurfaceCheck API</span>, to studying network protocols and web vulnerability labs.
+              I spend my time understanding how network perimeters and web applications break so I can build better defenses. Currently, I am enrolled in a 6-month cybersecurity training programme at <strong className="text-[#20231F] font-medium">Tech By Heart</strong> and solving hands-on virtual lab rooms on <strong className="text-[#20231F] font-medium">TryHackMe</strong>.
             </p>
             <p>
-              Alongside security, I apply machine learning to telemetry problems (like stress prediction in <span className="text-white font-medium">MENTRA.OS</span>) and build responsive full-stack applications.
+              I also love engineering software from scratch — including an automated port & header auditor (<span className="text-[#345A46] font-medium">SurfaceCheck API</span>), an explainable student stress telemetry platform (<span className="text-[#345A46] font-medium">MENTRA.OS</span>), and a real-time tournament manager (<span className="text-[#345A46] font-medium">KickBracket Pro</span>).
             </p>
           </motion.div>
 
-          {/* Call to Actions */}
+          {/* Thoughtful Action Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
             className="flex flex-wrap items-center gap-3.5 pt-2"
           >
             <a
               href="#cybersecurity"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs font-semibold text-[#090b0e] bg-emerald-400 hover:bg-emerald-300 transition-all shadow-[0_0_20px_rgba(16,185,129,0.25)] active:scale-95"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-medium text-[#F3F0E8] bg-[#345A46] hover:bg-[#254233] transition-all shadow-sm active:scale-95"
             >
               <span>Cybersecurity Focus</span>
               <ArrowDown size={14} />
@@ -73,10 +78,10 @@ export function Hero() {
 
             <a
               href="#projects"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs font-medium text-white bg-white/[0.04] border border-white/[0.08] hover:bg-white/[0.08] hover:border-white/[0.15] transition-all active:scale-95"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-medium text-[#20231F] bg-[#EBE6DA] hover:bg-[#DCD6C8] transition-all active:scale-95"
             >
-              <span>Explore Projects</span>
-              <ArrowUpRight size={14} className="text-[#8b949e]" />
+              <span>View Selected Projects</span>
+              <ArrowUpRight size={14} className="text-[#73766E]" />
             </a>
 
             <div className="flex items-center gap-2 ml-1">
@@ -84,8 +89,8 @@ export function Hero() {
                 href="https://github.com/Sainath-16"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.08] text-[#9da3af] hover:text-white transition-colors"
-                aria-label="GitHub"
+                className="p-2.5 rounded-full bg-[#EBE6DA] hover:bg-[#DCD6C8] text-[#575B53] hover:text-[#20231F] transition-colors"
+                aria-label="GitHub Profile"
               >
                 <BrandGithub size={16} />
               </a>
@@ -93,8 +98,8 @@ export function Hero() {
                 href="https://linkedin.com/in/sainaths18"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.08] text-[#9da3af] hover:text-emerald-300 transition-colors"
-                aria-label="LinkedIn"
+                className="p-2.5 rounded-full bg-[#EBE6DA] hover:bg-[#DCD6C8] text-[#575B53] hover:text-[#20231F] transition-colors"
+                aria-label="LinkedIn Profile"
               >
                 <BrandLinkedin size={16} />
               </a>
@@ -102,78 +107,79 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Right Column: Abstract Interactive Network Security Console */}
+        {/* Right Column: Architectural Discipline Card (5 Columns) */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
-          className="lg:col-span-5 p-6 rounded-2xl bg-[#0f1319]/90 border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.6)] backdrop-blur-md relative overflow-hidden font-mono"
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.25, ease: "easeOut" }}
+          className="lg:col-span-5 p-7 rounded-2xl bg-[#EBE6DA]/70 border border-[#DCD6C8] shadow-[0_8px_30px_rgba(32,35,31,0.03)] space-y-6"
         >
-          {/* Subtle glow edge accent */}
-          <div className="absolute top-0 right-0 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
-
-          {/* Console Header */}
-          <div className="flex items-center justify-between pb-3.5 border-b border-white/[0.06] text-xs">
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#ef4444]/60" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[#f59e0b]/60" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[#10b981]/60" />
-              <span className="ml-2 text-[#8b949e] text-[11px]">telemetry.security.node</span>
+          <div className="pb-4 border-b border-[#DCD6C8]">
+            <div className="text-[11px] font-mono uppercase tracking-wider text-[#73766E] mb-1">
+              Disciplinary Alignment
             </div>
-            <span className="text-[10px] text-emerald-400 font-medium px-2 py-0.5 rounded bg-emerald-950/40 border border-emerald-500/20">
-              Active Focus
-            </span>
-          </div>
-
-          {/* Structured Priority Breakdown */}
-          <div className="my-5 space-y-3">
-            <div className="text-[11px] text-[#8b949e] uppercase tracking-wider">
-              Technical Focus Hierarchy
-            </div>
-
-            <div className="p-3 rounded-lg bg-emerald-950/20 border border-emerald-500/30 flex items-center justify-between">
-              <div className="flex items-center gap-2.5">
-                <ShieldCheck size={16} className="text-emerald-400" />
-                <span className="text-xs font-medium text-white">1. Cybersecurity & Defense</span>
-              </div>
-              <span className="text-[10px] text-emerald-400 uppercase">Primary Career</span>
-            </div>
-
-            <div className="p-3 rounded-lg bg-white/[0.02] border border-white/[0.05] flex items-center justify-between">
-              <div className="flex items-center gap-2.5">
-                <Cpu size={16} className="text-sky-400" />
-                <span className="text-xs font-medium text-[#cbd5e1]">2. Artificial Intelligence & ML</span>
-              </div>
-              <span className="text-[10px] text-[#8b949e]">SHAP · Scikit-learn</span>
-            </div>
-
-            <div className="p-3 rounded-lg bg-white/[0.02] border border-white/[0.05] flex items-center justify-between">
-              <div className="flex items-center gap-2.5">
-                <Layers size={16} className="text-amber-400" />
-                <span className="text-xs font-medium text-[#cbd5e1]">3. Full-Stack Web Systems</span>
-              </div>
-              <span className="text-[10px] text-[#8b949e]">Next.js · FastAPI</span>
-            </div>
-
-            <div className="p-3 rounded-lg bg-white/[0.02] border border-white/[0.05] flex items-center justify-between">
-              <div className="flex items-center gap-2.5">
-                <Network size={16} className="text-purple-400" />
-                <span className="text-xs font-medium text-[#cbd5e1]">4. Cloud & Real-Time Sync</span>
-              </div>
-              <span className="text-[10px] text-[#8b949e]">Vercel Edge</span>
+            <div className="text-sm font-medium text-[#20231F]">
+              Technical Focus in Order of Priority
             </div>
           </div>
 
-          {/* Quick Base Stats */}
-          <div className="pt-3.5 border-t border-white/[0.06] text-[11px] text-[#8b949e] space-y-1.5">
-            <div className="flex justify-between">
-              <span>Location:</span>
-              <span className="text-[#cbd5e1]">Thiruvananthapuram, Kerala</span>
+          <div className="space-y-3 font-sans">
+            <div className="p-3.5 rounded-xl bg-[#F3F0E8] border border-[#345A46]/30 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-7 h-7 rounded-lg bg-[#345A46]/10 flex items-center justify-center text-[#345A46]">
+                  <Shield size={16} />
+                </div>
+                <div>
+                  <div className="text-xs font-semibold text-[#20231F]">1. Cybersecurity</div>
+                  <div className="text-[11px] text-[#73766E]">AppSec, Network Defense, Nmap, OWASP</div>
+                </div>
+              </div>
+              <span className="text-[10px] font-mono text-[#345A46] uppercase font-semibold">Primary</span>
             </div>
-            <div className="flex justify-between">
-              <span>Current Training:</span>
-              <span className="text-emerald-300">FRCD – Tech By Heart (6 mos)</span>
+
+            <div className="p-3.5 rounded-xl bg-[#F3F0E8] border border-[#DCD6C8] flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-7 h-7 rounded-lg bg-[#EBE6DA] flex items-center justify-center text-[#575B53]">
+                  <Cpu size={16} />
+                </div>
+                <div>
+                  <div className="text-xs font-semibold text-[#20231F]">2. AI & Machine Learning</div>
+                  <div className="text-[11px] text-[#73766E]">Explainable AI, SHAP, Scikit-learn</div>
+                </div>
+              </div>
+              <span className="text-[10px] font-mono text-[#73766E]">Applied</span>
             </div>
+
+            <div className="p-3.5 rounded-xl bg-[#F3F0E8] border border-[#DCD6C8] flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-7 h-7 rounded-lg bg-[#EBE6DA] flex items-center justify-center text-[#575B53]">
+                  <Code2 size={16} />
+                </div>
+                <div>
+                  <div className="text-xs font-semibold text-[#20231F]">3. Full-Stack Systems</div>
+                  <div className="text-[11px] text-[#73766E]">Next.js, FastAPI, TypeScript, Python</div>
+                </div>
+              </div>
+              <span className="text-[10px] font-mono text-[#73766E]">Production</span>
+            </div>
+
+            <div className="p-3.5 rounded-xl bg-[#F3F0E8] border border-[#DCD6C8] flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-7 h-7 rounded-lg bg-[#EBE6DA] flex items-center justify-center text-[#575B53]">
+                  <Cloud size={16} />
+                </div>
+                <div>
+                  <div className="text-xs font-semibold text-[#20231F]">4. Cloud & Tooling</div>
+                  <div className="text-[11px] text-[#73766E]">Vercel Edge, Linux, ngrok, Git</div>
+                </div>
+              </div>
+              <span className="text-[10px] font-mono text-[#73766E]">Infra</span>
+            </div>
+          </div>
+
+          <div className="pt-3 border-t border-[#DCD6C8] text-xs font-mono text-[#73766E] flex items-center justify-between">
+            <span>Current Track:</span>
+            <span className="text-[#345A46] font-medium">FRCD – Tech By Heart</span>
           </div>
         </motion.div>
       </div>
