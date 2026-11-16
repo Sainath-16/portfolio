@@ -3,6 +3,8 @@ import { EditorialCanvas } from "@/components/EditorialCanvas";
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { CybersecuritySection } from "@/components/CybersecuritySection";
+import { ResearchSection } from "@/components/ResearchSection";
+import { CertificatesGallery } from "@/components/CertificatesGallery";
 import { TrainingAndEducation } from "@/components/TrainingAndEducation";
 import { Projects } from "@/components/Projects";
 import { Skills } from "@/components/Skills";
@@ -17,6 +19,8 @@ export default function Home() {
         <main>
           <Hero />
           <CybersecuritySection />
+          <ResearchSection />
+          <CertificatesGallery />
           <TrainingAndEducation />
           <Projects />
           <Skills />

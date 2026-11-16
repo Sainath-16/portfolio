@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, FileText } from "lucide-react";
 import { PROJECTS } from "@/lib/portfolio-data";
 import { BrandGithub } from "./BrandIcons";
 
@@ -123,7 +123,7 @@ export function Projects() {
             </div>
 
             {/* Source Code Action Button in Vermillion */}
-            <div className="pt-2 flex items-center gap-3">
+            <div className="pt-2 flex flex-wrap items-center gap-3">
               <a
                 href={currentProject.githubUrl}
                 target="_blank"
@@ -134,6 +134,18 @@ export function Projects() {
                 <span>Inspect Repository on GitHub</span>
                 <ArrowUpRight size={13} />
               </a>
+
+              {currentProject.id === "mentra-os" && (
+                <a
+                  href="/research/mentra-os-research-paper.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold text-[#430D1C] bg-[#FFF0E5] hover:bg-[#F2DDCF] border border-[#E5CABE] transition-all active:scale-95 shadow-sm"
+                >
+                  <FileText size={14} className="text-[#FF493D]" />
+                  <span>Research Paper (ICETAI&apos;26) ↗</span>
+                </a>
+              )}
             </div>
           </div>
 

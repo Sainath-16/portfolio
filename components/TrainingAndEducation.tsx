@@ -1,6 +1,6 @@
 import React from "react";
-import { BookOpen, Award } from "lucide-react";
-import { CURRENT_TRAINING, COMPLETED_CREDENTIALS } from "@/lib/portfolio-data";
+import { BookOpen, GraduationCap, CheckCircle2 } from "lucide-react";
+import { CURRENT_TRAINING } from "@/lib/portfolio-data";
 
 export function TrainingAndEducation() {
   return (
@@ -9,14 +9,14 @@ export function TrainingAndEducation() {
         <div>
           <div className="text-xs font-mono uppercase tracking-widest text-[#8F5462] mb-2 flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-[#FF493D]" />
-            <span>Formal Education & Training</span>
+            <span>Structured Technical Education</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-serif text-[#430D1C] tracking-tight">
-            Cybersecurity Training & Credentials
+            Ongoing Training & Formal Education
           </h2>
         </div>
         <p className="text-sm text-[#6B2D3C] max-w-md font-light leading-relaxed">
-          Transparent overview of my ongoing professional cybersecurity programme at Tech By Heart and verified certifications earned through university and industry workshops.
+          Transparent presentation of my active cybersecurity training journey alongside my foundational computer science degree.
         </p>
       </div>
 
@@ -25,13 +25,13 @@ export function TrainingAndEducation() {
         <div className="lg:col-span-7 space-y-6">
           <div className="text-xs font-mono uppercase tracking-wider text-[#8F5462] flex items-center gap-2">
             <BookOpen size={14} className="text-[#FF493D]" />
-            <span>Active Cybersecurity Programme</span>
+            <span>Active Cybersecurity Programme (Currently Pursuing)</span>
           </div>
 
-          <div className="p-8 rounded-2xl bg-[#F8E7DB]/90 border border-[#E5CABE] shadow-[0_8px_30px_rgba(67,13,28,0.04)] space-y-5">
+          <div className="p-8 rounded-2xl bg-[#F8E7DB]/95 border border-[#E5CABE] shadow-[0_8px_30px_rgba(67,13,28,0.04)] space-y-5">
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <span className="px-3 py-1 rounded-full text-xs font-mono font-medium text-[#430D1C] bg-[#FFF0E5] border border-[#FF493D]/30 flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#FF493D] animate-pulse" />
+              <span className="px-3.5 py-1 rounded-full text-xs font-mono font-semibold text-[#430D1C] bg-[#FFF0E5] border border-[#FF493D]/30 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#FF493D] animate-pulse" />
                 {CURRENT_TRAINING.status}
               </span>
               <span className="text-xs font-mono text-[#8F5462]">
@@ -56,7 +56,7 @@ export function TrainingAndEducation() {
 
             {/* 3 Explicit Tracks: CAP, CNP, ASA with full names */}
             <div className="pt-2 border-t border-[#E5CABE] space-y-3">
-              <div className="text-[11px] font-mono uppercase text-[#8F5462]">
+              <div className="text-[11px] font-mono uppercase text-[#8F5462] font-semibold">
                 Three Core Training Tracks:
               </div>
 
@@ -82,69 +82,60 @@ export function TrainingAndEducation() {
               </div>
             </div>
           </div>
-
-          {/* Completed Internship Highlight */}
-          <div className="p-6 rounded-2xl bg-[#F8E7DB]/70 border border-[#E5CABE] space-y-2">
-            <div className="flex justify-between items-center text-xs font-mono">
-              <span className="text-[#FF493D] font-semibold">Completed Internship</span>
-              <span className="text-[#8F5462]">2025 · Technopark, Trivandrum</span>
-            </div>
-            <h4 className="text-base font-semibold text-[#430D1C]">
-              Cybersecurity & Ethical Hacking Intern
-            </h4>
-            <div className="text-xs text-[#8F5462]">ICT Academy of Kerala</div>
-            <p className="text-xs text-[#6B2D3C] leading-relaxed font-light pt-1">
-              Practiced network scanning, port enumeration using Nmap, and analyzed common web vulnerabilities aligned with OWASP Top 10 guidelines.
-            </p>
-          </div>
         </div>
 
-        {/* Right Column: Verified Certifications List (5 Cols) */}
-        <div className="lg:col-span-5 space-y-4">
+        {/* Right Column: Academic Degree & Transparency Framework (5 Cols) */}
+        <div className="lg:col-span-5 space-y-6">
           <div className="text-xs font-mono uppercase tracking-wider text-[#8F5462] flex items-center gap-2">
-            <Award size={14} className="text-[#FF493D]" />
-            <span>Verified Credentials Earned ({COMPLETED_CREDENTIALS.length})</span>
-          </div>
-
-          <div className="space-y-3">
-            {COMPLETED_CREDENTIALS.map((cred, i) => (
-              <div
-                key={i}
-                className="p-4 rounded-xl bg-[#F8E7DB]/70 border border-[#E5CABE] flex items-center justify-between gap-3 hover:border-[#FF493D]/60 transition-colors"
-              >
-                <div>
-                  <div className="text-xs font-semibold text-[#430D1C] leading-snug">
-                    {cred.title}
-                  </div>
-                  <div className="text-[11px] text-[#8F5462] mt-0.5 font-mono">
-                    {cred.issuer}
-                  </div>
-                </div>
-                <div className="text-right shrink-0">
-                  <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#FFF0E5] text-[#6B2D3C] border border-[#E5CABE]">
-                    {cred.year}
-                  </span>
-                </div>
-              </div>
-            ))}
+            <GraduationCap size={15} className="text-[#FF493D]" />
+            <span>University Degree & Institutional Base</span>
           </div>
 
           {/* Academic Profile Card */}
-          <div className="p-5 rounded-xl bg-[#F8E7DB]/70 border border-[#E5CABE] space-y-2">
-            <div className="text-xs font-mono uppercase text-[#8F5462]">
-              Academic Qualification
+          <div className="p-7 rounded-2xl bg-[#F8E7DB]/95 border border-[#E5CABE] space-y-4 shadow-sm">
+            <div className="flex items-center justify-between text-xs font-mono">
+              <span className="text-[#FF493D] font-semibold">Undergraduate Degree</span>
+              <span className="text-[#8F5462]">Class of 2026</span>
             </div>
-            <div className="text-sm font-semibold text-[#430D1C]">
-              Bachelor of Technology (B.Tech) in Computer Science
+
+            <div>
+              <h4 className="text-xl font-serif font-bold text-[#430D1C]">
+                Bachelor of Technology (B.Tech)
+              </h4>
+              <div className="text-sm font-semibold text-[#6B2D3C] mt-0.5">
+                Computer Science & Engineering
+              </div>
+              <div className="text-xs text-[#8F5462] font-mono mt-1">
+                Mar Ivanios College (Autonomous), Thiruvananthapuram, Kerala
+              </div>
             </div>
-            <div className="text-xs text-[#6B2D3C] font-light">
-              University Affiliation · Kerala, India
-            </div>
+
+            <p className="text-xs text-[#6B2D3C] leading-relaxed font-light border-t border-[#E5CABE] pt-3">
+              Rigorous curriculum covering data structures, object-oriented design, operating systems, relational database theory, network security foundations, and machine learning.
+            </p>
           </div>
 
-          {/* Integrity Note */}
-          <div className="p-4 rounded-xl bg-[#FFF0E5] border border-[#E5CABE] text-[11px] text-[#8F5462] leading-relaxed font-light">
-            <strong className="text-[#430D1C] font-medium">Transparency Note:</strong> All credentials above represent completed certifications verified by institutions. The 6-month FRCD course at Tech By Heart is currently ongoing.
+          {/* Category Separation & Transparency Card */}
+          <div className="p-6 rounded-2xl bg-[#FFF0E5] border border-[#E5CABE] space-y-3">
+            <div className="text-xs font-mono uppercase text-[#430D1C] font-semibold flex items-center gap-1.5">
+              <CheckCircle2 size={14} className="text-[#FF493D]" />
+              <span>Institutional Separation Standard</span>
+            </div>
+
+            <ul className="space-y-2 text-xs text-[#6B2D3C] font-light leading-relaxed">
+              <li className="flex items-start gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#430D1C] mt-1.5 shrink-0" />
+                <span><strong>Ongoing Training:</strong> FRCD programme at Tech By Heart is actively in progress.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#430D1C] mt-1.5 shrink-0" />
+                <span><strong>Earned Certificates:</strong> Exactly 6 verified certificates with original PDFs viewable above.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#430D1C] mt-1.5 shrink-0" />
+                <span><strong>Academic Research:</strong> MENTRA.OS final-year paper published in ICETAI&apos;26 proceedings.</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

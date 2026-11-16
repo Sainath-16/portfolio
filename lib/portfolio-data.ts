@@ -290,42 +290,175 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   }
 ];
 
+export interface VerifiedCertificate {
+  id: string;
+  title: string;
+  issuer: string;
+  period: string;
+  duration?: string;
+  dateBadge: string;
+  category: "Cybersecurity" | "Data & Analytics" | "IoT & Systems" | "Artificial Intelligence" | "Software Engineering";
+  pdfUrl: string;
+  thumbnailUrl: string;
+  description: string;
+  partnerInfo?: string;
+}
+
+export const VERIFIED_CERTIFICATES: VerifiedCertificate[] = [
+  {
+    id: "cyber-security-internship",
+    title: "Cyber Security — One-month Internship",
+    issuer: "ICT Academy of Kerala",
+    period: "May–July 2025",
+    duration: "1 Month",
+    dateBadge: "May–Jul 2025",
+    category: "Cybersecurity",
+    pdfUrl: "/certificates/cyber-security-internship.pdf",
+    thumbnailUrl: "/certificates/thumbs/cyber-security-internship.png",
+    description: "Completion of practical one-month cybersecurity internship with hands-on project execution (Grade C).",
+    partnerInfo: "ICT Academy of Kerala"
+  },
+  {
+    id: "power-bi-data-visualization",
+    title: "Data Visualization with Power BI",
+    issuer: "ICT Academy of Kerala",
+    period: "September–October 2023",
+    duration: "30 Hours",
+    dateBadge: "Sep–Oct 2023",
+    category: "Data & Analytics",
+    pdfUrl: "/certificates/power-bi-data-visualization.pdf",
+    thumbnailUrl: "/certificates/thumbs/power-bi-data-visualization.png",
+    description: "30-hour Microskill Training Program in association with Mar Ivanios Centre for Professional Studies & Industrial Linkage (MICPS & IL) and Dept. of Computer Science.",
+    partnerInfo: "In association with Mar Ivanios College"
+  },
+  {
+    id: "iot-addon-program",
+    title: "Add-on Program on IoT",
+    issuer: "ICT Academy of Kerala",
+    period: "August–September 2024",
+    duration: "30 Hours",
+    dateBadge: "Aug–Sep 2024",
+    category: "IoT & Systems",
+    pdfUrl: "/certificates/iot-addon-program.pdf",
+    thumbnailUrl: "/certificates/thumbs/iot-addon-program.png",
+    description: "30-hour Addon Program on IoT offered by ICT Academy of Kerala in association with Mar Ivanios College Dept. of Computer Science.",
+    partnerInfo: "In association with Mar Ivanios College"
+  },
+  {
+    id: "ibm-introduction-to-ai",
+    title: "Introduction to Artificial Intelligence (AI)",
+    issuer: "IBM (offered through Coursera)",
+    period: "Completed 16 February 2026",
+    duration: "Course Certificate",
+    dateBadge: "16 Feb 2026",
+    category: "Artificial Intelligence",
+    pdfUrl: "/certificates/ibm-introduction-to-ai.pdf",
+    thumbnailUrl: "/certificates/thumbs/ibm-introduction-to-ai.png",
+    description: "Online course authorized by IBM Skills Network covering generative AI concepts, ethical considerations, and machine learning foundations.",
+    partnerInfo: "Authorized by IBM · Coursera"
+  },
+  {
+    id: "ibm-software-engineering",
+    title: "Introduction to Software Engineering",
+    issuer: "IBM (offered through Coursera)",
+    period: "Completed 10 February 2026",
+    duration: "Course Certificate",
+    dateBadge: "10 Feb 2026",
+    category: "Software Engineering",
+    pdfUrl: "/certificates/ibm-software-engineering.pdf",
+    thumbnailUrl: "/certificates/thumbs/ibm-software-engineering.png",
+    description: "Online course authorized by IBM Skills Network covering SDLC methodologies, software architectures, Agile fundamentals, and tooling.",
+    partnerInfo: "Authorized by IBM · Coursera"
+  },
+  {
+    id: "nxtwave-generative-ai-workshop",
+    title: "AI for Students: Build Your Own Generative AI Model",
+    issuer: "NxtWave",
+    period: "Issued 18 May 2024",
+    duration: "Hands-on Project Workshop",
+    dateBadge: "18 May 2024",
+    category: "Artificial Intelligence",
+    pdfUrl: "/certificates/nxtwave-generative-ai-workshop.pdf",
+    thumbnailUrl: "/certificates/thumbs/nxtwave-generative-ai-workshop.png",
+    description: "Hands-on project workshop conducted by AI expert and IIT Delhi alumnus Mr. Trivikrama on generative AI model building.",
+    partnerInfo: "Conducted by IIT Delhi Alumnus Mr. Trivikrama"
+  }
+];
+
+export interface ResearchPublication {
+  title: string;
+  conference: string;
+  conferenceShort: string;
+  conferenceDate: string;
+  publicationType: string;
+  isbn: string;
+  authors: {
+    name: string;
+    role?: string;
+    isUser?: boolean;
+  }[];
+  affiliation: string;
+  department: string;
+  userRole: string;
+  shortDescription: string;
+  pdfUrl: string;
+  coverThumbnail: string;
+  pageThumbnail: string;
+  technicalHighlights: string[];
+  reportedMetrics: {
+    accuracy: string;
+    f1Score: string;
+    context: string;
+  };
+}
+
+export const MENTRA_RESEARCH: ResearchPublication = {
+  title: "MENTRA.OS: Building and Analyzing an AI-Based Cognitive Telemetry System for Student Stress Prediction",
+  conference: "International Conference on Emerging Trends in Artificial Intelligence (ICETAI'26)",
+  conferenceShort: "ICETAI'26",
+  conferenceDate: "24 April 2026",
+  publicationType: "Conference Proceedings",
+  isbn: "978-81-987260-7-0",
+  authors: [
+    { name: "Sainath S", role: "First Author & Paper Presenter", isUser: true },
+    { name: "Dr. Pradeepa P", role: "Associate Professor & Project Guide" },
+    { name: "Sreejith AS", role: "Co-Author" },
+    { name: "Surya S Nair", role: "Co-Author" }
+  ],
+  affiliation: "Department of Computer Science, Mar Ivanios College, Thiruvananthapuram, Kerala, India",
+  department: "Department of Computer Science",
+  userRole: "First Author and Research Paper Presenter",
+  shortDescription: "Research on an AI-based cognitive telemetry system for predicting student stress using multidimensional lifestyle data, Random Forest classification and SHAP-based Explainable AI.",
+  pdfUrl: "/research/mentra-os-research-paper.pdf",
+  coverThumbnail: "/research/thumbs/mentra-cover.png",
+  pageThumbnail: "/research/thumbs/mentra-paper-first-page.png",
+  technicalHighlights: [
+    "Random Forest-based student stress prediction",
+    "SHAP Explainable AI for feature attribution",
+    "Multidimensional cognitive telemetry",
+    "Next.js frontend",
+    "FastAPI backend",
+    "SQLite database"
+  ],
+  reportedMetrics: {
+    accuracy: "88.6%",
+    f1Score: "0.89 macro-average F1-Score",
+    context: "Experimental model benchmark reported in the published conference paper (evaluating multidimensional cognitive telemetry parameters; not presented as clinical diagnostic performance)."
+  }
+};
+
 export interface CompletedCredential {
   title: string;
   issuer: string;
   year: string;
   track: "Security" | "AI & ML" | "Analytics" | "Systems";
+  pdfUrl?: string;
 }
 
-export const COMPLETED_CREDENTIALS: CompletedCredential[] = [
-  {
-    title: "Cybersecurity & Ethical Hacking Training",
-    issuer: "ICT Academy of Kerala",
-    year: "2025",
-    track: "Security"
-  },
-  {
-    title: "Unlocking the Power of Large Language Models (LLMs)",
-    issuer: "IBM",
-    year: "2024",
-    track: "AI & ML"
-  },
-  {
-    title: "AI for Students: Build Your Own Generative AI Model",
-    issuer: "Industry Workshop",
-    year: "2024",
-    track: "AI & ML"
-  },
-  {
-    title: "Data Visualization with Power BI",
-    issuer: "ICT Academy of Kerala",
-    year: "2024",
-    track: "Analytics"
-  },
-  {
-    title: "Add-on Program on Internet of Things (IoT)",
-    issuer: "ICT Academy of Kerala",
-    year: "2024",
-    track: "Systems"
-  }
-];
+export const COMPLETED_CREDENTIALS: CompletedCredential[] = VERIFIED_CERTIFICATES.map(c => ({
+  title: c.title,
+  issuer: c.issuer,
+  year: c.dateBadge,
+  track: c.category === "Cybersecurity" ? "Security" : c.category === "Data & Analytics" ? "Analytics" : c.category === "IoT & Systems" ? "Systems" : "AI & ML",
+  pdfUrl: c.pdfUrl
+}));

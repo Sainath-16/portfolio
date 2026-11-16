@@ -7,6 +7,8 @@ import { BrandGithub, BrandLinkedin } from "./BrandIcons";
 const NAV_LINKS = [
   { label: "Overview", href: "#overview" },
   { label: "Cybersecurity", href: "#cybersecurity" },
+  { label: "Research", href: "#research" },
+  { label: "Certifications", href: "#certifications" },
   { label: "Training", href: "#training" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
@@ -22,7 +24,7 @@ export function Navigation() {
     const onScroll = () => {
       setScrolled(window.scrollY > 30);
 
-      const sections = ["overview", "cybersecurity", "training", "projects", "skills", "contact"];
+      const sections = ["overview", "cybersecurity", "research", "certifications", "training", "projects", "skills", "contact"];
       const scrollPos = window.scrollY + 200;
 
       for (let i = sections.length - 1; i >= 0; i--) {
