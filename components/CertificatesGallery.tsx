@@ -4,9 +4,11 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { ArrowUpRight, Award, ExternalLink, CheckCircle2 } from "lucide-react";
 import { VERIFIED_CERTIFICATES, VerifiedCertificate } from "@/lib/portfolio-data";
+import { useCardSpotlight, CardOverlays } from "@/components/CardMotion";
 
 export function CertificatesGallery() {
   const [filter, setFilter] = useState<string>("All");
+  const { handlePointerMove, handlePointerLeave } = useCardSpotlight();
 
   const categories = ["All", "Cybersecurity", "Artificial Intelligence", "Software Engineering", "IoT & Systems", "Data & Analytics"];
 
@@ -54,12 +56,15 @@ export function CertificatesGallery() {
       </div>
 
       {/* 6 Interactive Certificate Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+      <div className="motion-card-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
         {filteredCerts.map((cert: VerifiedCertificate) => (
           <div
             key={cert.id}
-            className="group rounded-2xl bg-[#F8E7DB]/90 border border-[#E5CABE] hover:border-[#FF493D] shadow-sm hover:shadow-[0_12px_36px_rgba(67,13,28,0.08)] transition-all flex flex-col justify-between overflow-hidden"
+            onPointerMove={handlePointerMove}
+            onPointerLeave={handlePointerLeave}
+            className="motion-card group rounded-2xl bg-[#F8E7DB]/90 border border-[#E5CABE] hover:border-[#FF493D] shadow-sm hover:shadow-[0_12px_36px_rgba(67,13,28,0.08)] transition-all flex flex-col justify-between overflow-hidden"
           >
+            <CardOverlays />
             {/* Clickable High-Resolution Document Thumbnail */}
             <a
               href={cert.pdfUrl}

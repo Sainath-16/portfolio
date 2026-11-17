@@ -1,0 +1,291 @@
+/* Motion design system tokens */
+:root {
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 180ms;
+  --dur-base: 320ms;
+  --dur-slow: 700ms;
+  --stagger: 70ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0.01ms;
+    --dur-base: 0.01ms;
+    --dur-slow: 0.01ms;
+    --stagger: 0ms;
+  }
+}
+
+/* ─── Step 2: Netflix-style Card Interactions ─── */
+
+.motion-card-grid {
+  position: relative;
+}
+
+.motion-card {
+  position: relative;
+  transition: transform var(--dur-base) var(--ease-premium),
+              opacity var(--dur-base) var(--ease-premium);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  /* Dim sibling cards slightly while one card in the grid is hovered */
+  .motion-card-grid:has(.motion-card:hover) .motion-card {
+    opacity: 0.7;
+  }
+
+  /* The hovered card stays fully opaque, scales, and lifts with high z-index */
+  .motion-card-grid:has(.motion-card:hover) .motion-card:hover,
+  .motion-card:hover {
+    opacity: 1 !important;
+    transform: scale(1.035) translateY(-4px);
+    z-index: 30;
+    will-change: transform;
+  }
+
+  /* Fade in spotlight overlay on hover */
+  .motion-card:hover .motion-card-spotlight {
+    opacity: 1;
+  }
+
+  /* Fade in border glow overlay on hover */
+  .motion-card:hover .motion-card-border-glow {
+    opacity: 1;
+  }
+}
+
+/* Cursor-follow spotlight overlay */
+.motion-card-spotlight {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-premium);
+  z-index: 15;
+}
+
+/* Subtle border glow on hover (overlay opacity) */
+.motion-card-border-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  border-width: 1.5px;
+  border-style: solid;
+  border-color: #FF493D;
+  box-shadow: inset 0 0 14px rgba(255, 73, 61, 0.16), 0 0 16px rgba(255, 73, 61, 0.22);
+  transition: opacity var(--dur-base) var(--ease-premium);
+  z-index: 20;
+}
+
+/* ─── Step 3: Buttons, Links & Navigation Motion ─── */
+
+/* Visible, elegant :focus-visible ring on all interactive elements */
+:focus-visible {
+  outline: 2px solid #FF493D !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 10px rgba(255, 73, 61, 0.35) !important;
+}
+
+:focus:not(:focus-visible) {
+  outline: none !important;
+}
+
+/* Button 2px lift on hover, press-down scale(0.98) on active */
+button:not(.motion-card):not(.nav-link),
+[role="button"]:not(.motion-card):not(.nav-link),
+a.inline-flex[class*="rounded-full"],
+a.inline-flex[class*="rounded-xl"],
+.btn-lift {
+  transition: transform var(--dur-fast) var(--ease-premium),
+              background-color var(--dur-fast) var(--ease-soft),
+              color var(--dur-fast) var(--ease-soft),
+              border-color var(--dur-fast) var(--ease-soft);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  button:not(.motion-card):not(.nav-link):hover,
+  [role="button"]:not(.motion-card):not(.nav-link):hover,
+  a.inline-flex[class*="rounded-full"]:hover,
+  a.inline-flex[class*="rounded-xl"]:hover,
+  .btn-lift:hover {
+    transform: translateY(-2px);
+  }
+
+  button:not(.motion-card):not(.nav-link):active,
+  [role="button"]:not(.motion-card):not(.nav-link):active,
+  a.inline-flex[class*="rounded-full"]:active,
+  a.inline-flex[class*="rounded-xl"]:active,
+  .btn-lift:active {
+    transform: translateY(0px) scale(0.98) !important;
+  }
+}
+
+/* Arrow icon in "View Details →" shift 4px right on hover */
+.arrow-shift {
+  display: inline-block;
+  transition: transform var(--dur-fast) var(--ease-premium);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .group\/btn:hover .arrow-shift,
+  .btn-view-details:hover .arrow-shift {
+    transform: translateX(4px);
+  }
+}
+
+/* Nav links: underline growing from left on enter, retracting right on leave */
+.nav-link {
+  position: relative;
+  transition: background-color var(--dur-base) var(--ease-premium),
+              color var(--dur-base) var(--ease-premium);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 10px;
+  right: 10px;
+  height: 2px;
+  background-color: #FF493D;
+  border-radius: 1px;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform var(--dur-base) var(--ease-premium);
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+}
+
+.nav-link.nav-link-active::after {
+  display: none;
+}
+
+/* ─── Step 4: Scroll Experience & Section Reveal ─── */
+
+/* Smooth anchor scrolling & sticky header clearance */
+html {
+  scroll-behavior: smooth;
+}
+
+section[id],
+[id] {
+  scroll-margin-top: 5.5rem; /* ~88px offset clears the 80px fixed header */
+}
+
+/* Section reveal animations */
+.reveal-wrapper {
+  transition: opacity var(--dur-slow) var(--ease-premium),
+              transform var(--dur-slow) var(--ease-premium);
+}
+
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggering direct children by --stagger (70ms) */
+.reveal-stagger > *:nth-child(1) { transition-delay: calc(var(--stagger) * 0); }
+.reveal-stagger > *:nth-child(2) { transition-delay: calc(var(--stagger) * 1); }
+.reveal-stagger > *:nth-child(3) { transition-delay: calc(var(--stagger) * 2); }
+.reveal-stagger > *:nth-child(4) { transition-delay: calc(var(--stagger) * 3); }
+.reveal-stagger > *:nth-child(5) { transition-delay: calc(var(--stagger) * 4); }
+.reveal-stagger > *:nth-child(6) { transition-delay: calc(var(--stagger) * 5); }
+.reveal-stagger > *:nth-child(7) { transition-delay: calc(var(--stagger) * 6); }
+.reveal-stagger > *:nth-child(8) { transition-delay: calc(var(--stagger) * 7); }
+
+/* ─── Step 5: Ambient Background Layer Cross-Fade ─── */
+
+.ambient-bg-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.ambient-gradient-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 900ms var(--ease-soft);
+  will-change: opacity;
+}
+
+.ambient-layer-active {
+  opacity: 1;
+}
+
+.ambient-layer-inactive {
+  opacity: 0;
+}
+
+/* Accessibility: prefers-reduced-motion overrides */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  .motion-card,
+  .motion-card:hover,
+  .motion-card-grid:has(.motion-card:hover) .motion-card {
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
+
+  .motion-card-spotlight,
+  .motion-card-border-glow {
+    display: none !important;
+  }
+
+  button:not(.motion-card),
+  button:not(.motion-card):hover,
+  button:not(.motion-card):active,
+  a.inline-flex[class*="rounded-full"],
+  a.inline-flex[class*="rounded-full"]:hover,
+  a.inline-flex[class*="rounded-full"]:active {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .arrow-shift,
+  .group\/btn:hover .arrow-shift {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .nav-link::after,
+  .nav-link:hover::after {
+    transform: none !important;
+    transition: none !important;
+    display: none !important;
+  }
+
+  .reveal-wrapper,
+  .reveal-hidden,
+  .reveal-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .ambient-gradient-layer {
+    transition: none !important;
+  }
+}

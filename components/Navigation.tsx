@@ -21,23 +21,61 @@ export function Navigation() {
   const [activeId, setActiveId] = useState("overview");
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 30);
-
-      const sections = ["overview", "cybersecurity", "research", "certifications", "training", "projects", "skills", "contact"];
-      const scrollPos = window.scrollY + 200;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i]);
-        if (el && scrollPos >= el.offsetTop) {
-          setActiveId(sections[i]);
-          break;
-        }
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 30);
+          if (window.scrollY < 80) {
+            setActiveId("overview");
+          } else if (
+            window.innerHeight + window.scrollY >=
+            document.documentElement.scrollHeight - 50
+          ) {
+            setActiveId("contact");
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    const sections = [
+      "overview",
+      "cybersecurity",
+      "research",
+      "certifications",
+      "training",
+      "projects",
+      "skills",
+      "contact",
+    ];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: "-40% 0px -55% 0px",
+        threshold: 0,
+      }
+    );
+
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -93,9 +131,9 @@ export function Navigation() {
                 key={item.label}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className={`px-3.5 py-1 text-xs font-medium rounded-full transition-all ${
+                className={`nav-link px-3.5 py-1 text-xs font-medium rounded-full transition-all ${
                   isActive
-                    ? "bg-[#430D1C] text-[#FFF0E5] shadow-sm"
+                    ? "nav-link-active bg-[#430D1C] text-[#FFF0E5] shadow-sm"
                     : "text-[#6B2D3C] hover:text-[#430D1C] hover:bg-[#F2DDCF]/60"
                 }`}
               >

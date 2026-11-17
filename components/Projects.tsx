@@ -4,9 +4,11 @@ import React, { useState } from "react";
 import { ArrowUpRight, CheckCircle2, FileText } from "lucide-react";
 import { PROJECTS } from "@/lib/portfolio-data";
 import { BrandGithub } from "./BrandIcons";
+import { useCardSpotlight, CardOverlays } from "@/components/CardMotion";
 
 export function Projects() {
   const [activeId, setActiveId] = useState<string>("surfacecheck-api");
+  const { handlePointerMove, handlePointerLeave } = useCardSpotlight();
 
   const currentProject = PROJECTS.find((p) => p.id === activeId) || PROJECTS[0];
 
@@ -29,7 +31,7 @@ export function Projects() {
       </div>
 
       {/* Project Selector Rail */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 mb-10">
+      <div className="motion-card-grid grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 mb-10">
         {PROJECTS.map((proj) => {
           const isSelected = activeId === proj.id;
           return (
@@ -37,12 +39,15 @@ export function Projects() {
               key={proj.id}
               type="button"
               onClick={() => setActiveId(proj.id)}
-              className={`text-left p-4 rounded-xl border transition-all ${
+              onPointerMove={handlePointerMove}
+              onPointerLeave={handlePointerLeave}
+              className={`motion-card relative overflow-hidden text-left p-4 rounded-xl border transition-all ${
                 isSelected
                   ? "bg-[#F8E7DB] border-[#430D1C] text-[#430D1C] shadow-sm"
                   : "bg-[#FFF0E5] border-[#E5CABE] hover:bg-[#F8E7DB]/60 text-[#8F5462]"
               }`}
             >
+              <CardOverlays />
               <div className="flex items-center justify-between mb-1 text-[11px] font-mono">
                 <span className={isSelected ? "text-[#FF493D] font-bold" : "text-[#8F5462]"}>
                   {proj.number}
@@ -233,9 +238,10 @@ export function Projects() {
                       el.scrollIntoView({ behavior: "smooth" });
                     }
                   }}
-                  className="text-xs font-mono text-[#FF493D] hover:underline font-semibold"
+                  className="group/btn text-xs font-mono text-[#FF493D] hover:underline font-semibold inline-flex items-center gap-1"
                 >
-                  View Details →
+                  <span>View Details</span>
+                  <span className="arrow-shift">→</span>
                 </button>
               </div>
             </div>
